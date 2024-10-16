@@ -2,7 +2,7 @@ FROM ghcr.io/ggerganov/llama.cpp:server AS server
 
 FROM cgr.dev/chainguard/wolfi-base
 
-ARG MODEL=Llama-3.2-1B-Instruct
+ARG MODEL
 
 RUN apk add --no-cache libcurl4 libstdc++ libgomp
 

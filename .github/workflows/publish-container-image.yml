@@ -1,5 +1,4 @@
 name: Publish Image to GHCR
-
 on:
   push:
     branches:
@@ -8,20 +7,23 @@ on:
       - "**.md"
       - "**.txt"
   schedule:
-    - cron: '0 0 * * 0'  # Run at 00:00 UTC on Sunday
+    - cron: "0 0 * * 0"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        model: [
-          Llama-3.2-1B-Instruct,
-          Llama-3.2-3B-Instruct,
-          Qwen2.5-0.5B-Instruct,
-          Qwen2.5-1.5B-Instruct,
-          Qwen2.5-3B-Instruct
-        ]
+        model:
+          [
+            Llama-3.2-1B-Instruct,
+            Llama-3.2-3B-Instruct,
+            Qwen2.5-0.5B-Instruct,
+            Qwen2.5-1.5B-Instruct,
+            Qwen2.5-3B-Instruct,
+            Phi-3.5-mini-instruct,
+            gemma-2-2b-it
+          ]
 
     steps:
       - name: Checkout Repository
