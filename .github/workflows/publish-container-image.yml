@@ -27,24 +27,24 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Convert Model Name to Lowercase
+        id: lowercase_model
+        run: echo "model=$(echo ${{ matrix.model }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build Image with Buildah
         id: build_image
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: |
             ./Containerfile
-          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ matrix.model }}-${{ github.sha }}
-          build_args: |
+          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ env.model }}-${{ github.sha }}
+          build-args: |
             MODEL=${{ matrix.model }}
-
-      - name: Convert Model Name to Lowercase
-        id: lowercase_model
-        run: echo "model=$(echo ${{ matrix.model }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ matrix.model }}-${{ github.sha }}
+          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ env.model }}-${{ github.sha }}
           tags: |
             ghcr.io/${{ github.repository_owner }}/${{ env.model }}:${{ github.sha }}
           registry: ghcr.io
