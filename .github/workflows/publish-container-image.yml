@@ -33,7 +33,7 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: docker-llama-server
+          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ matrix.model }}-${{ github.sha }}
           build_args: |
             MODEL=${{ matrix.model }}
 
@@ -41,13 +41,12 @@ jobs:
         id: lowercase_model
         run: echo "model=$(echo ${{ matrix.model }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
-      - name: Push To GHCR
-        if: success()  # Only push if build succeeds
+      - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ${{ steps.build_image.outputs.image }}
+          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ matrix.model }}-${{ github.sha }}
           tags: |
-            ${{ env.model }}-${{ github.sha }}
-          registry: ghcr.io/${{ github.repository_owner }}
+            ghcr.io/${{ github.repository_owner }}/${{ env.model }}:${{ github.sha }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
