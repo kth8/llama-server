@@ -1,4 +1,5 @@
 name: Publish Image to GHCR
+
 on:
   push:
     branches:
@@ -7,21 +8,20 @@ on:
       - "**.md"
       - "**.txt"
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: '0 0 * * 0'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        model:
-          [
-            Llama-3.2-1B-Instruct,
-            Llama-3.2-3B-Instruct,
-            Qwen2.5-0.5B-Instruct,
-            Qwen2.5-1.5B-Instruct,
-            Qwen2.5-3B-Instruct,
-          ]
+        model: [
+          Llama-3.2-1B-Instruct,
+          Llama-3.2-3B-Instruct,
+          Qwen2.5-0.5B-Instruct,
+          Qwen2.5-1.5B-Instruct,
+          Qwen2.5-3B-Instruct
+        ]
 
     steps:
       - name: Checkout Repository
@@ -36,6 +36,12 @@ jobs:
           image: docker-llama-server
           build_args: |
             MODEL=${{ matrix.model }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+      - name: Convert Model Name to Lowercase
+        id: lowercase_model
+        run: echo "model=$(echo ${{ matrix.model }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Push To GHCR
         uses: redhat-actions/push-to-registry@v2
@@ -43,7 +49,7 @@ jobs:
         with:
           image: ${{ steps.build_image.outputs.image }}
           tags: |
-            ${{ matrix.model | lower }}
+            ${{ env.model }}-${{ github.sha }}
           registry: ghcr.io/${{ github.repository_owner }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
