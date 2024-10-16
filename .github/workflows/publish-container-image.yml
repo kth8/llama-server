@@ -17,7 +17,10 @@ jobs:
       matrix:
         model: [
           Llama-3.2-1B-Instruct,
-          Llama-3.2-3B-Instruct
+          Llama-3.2-3B-Instruct,
+          Qwen2.5-0.5B-Instruct,
+          Qwen2.5-1.5B-Instruct,
+          Qwen2.5-3B-Instruct
         ]
 
     steps:
@@ -32,17 +35,13 @@ jobs:
         id: build_image
         uses: redhat-actions/buildah-build@v2
         with:
-          containerfiles: |
-            ./Containerfile
+          containerfiles: ./Containerfile
           image: llama-server
-          tags: |
-            ${{ env.model }}
-          build-args: |
-            MODEL=${{ matrix.model }}
+          tags: ${{ env.model }}
+          build-args: MODEL=${{ matrix.model }}
 
-      - name: Push To GHCR
+      - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
-        id: push
         with:
           image: ${{ steps.build_image.outputs.image }}
           tags: ${{ steps.build_image.outputs.tags }}
