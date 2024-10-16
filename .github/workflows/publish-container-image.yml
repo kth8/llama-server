@@ -34,7 +34,7 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: ghcr.io/${{ github.repository_owner }}/llama-server:${{ env.model }}
+          image: llama-server
           build-args: |
             MODEL=${{ matrix.model }}
 
