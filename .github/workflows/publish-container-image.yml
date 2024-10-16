@@ -1,0 +1,49 @@
+name: Publish Image to GHCR
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+      - "**.txt"
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model:
+          [
+            Llama-3.2-1B-Instruct,
+            Llama-3.2-3B-Instruct,
+            Qwen2.5-0.5B-Instruct,
+            Qwen2.5-1.5B-Instruct,
+            Qwen2.5-3B-Instruct,
+          ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Image
+        id: build_image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          containerfiles: |
+            ./Containerfile
+          image: docker-llama-server
+          build_args: |
+            MODEL=${{ matrix.model }}
+
+      - name: Push To GHCR
+        uses: redhat-actions/push-to-registry@v2
+        id: push
+        with:
+          image: ${{ steps.build_image.outputs.image }}
+          tags: |
+            ${{ matrix.model | lower }}
+          registry: ghcr.io/${{ github.repository_owner }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
