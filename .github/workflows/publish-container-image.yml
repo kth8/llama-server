@@ -35,6 +35,8 @@ jobs:
           containerfiles: |
             ./Containerfile
           image: llama-server
+          tags: |
+            ${{ env.model }}
           build-args: |
             MODEL=${{ matrix.model }}
 
