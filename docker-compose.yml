@@ -1,0 +1,9 @@
+services:
+  llama1b:
+    image: ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
+    container_name: llama1b
+    restart: always
+    init: true
+    ports:
+      - "8080:8080/tcp"
+    read_only: true
