@@ -22,7 +22,8 @@ jobs:
             Qwen2.5-1.5B-Instruct,
             Qwen2.5-3B-Instruct,
             Phi-3.5-mini-instruct,
-            gemma-2-2b-it
+            gemma-2-2b-it,
+            OLMoE-1B-7B-0924-Instruct
           ]
 
     steps:
