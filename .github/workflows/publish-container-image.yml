@@ -17,10 +17,7 @@ jobs:
       matrix:
         model: [
           Llama-3.2-1B-Instruct,
-          Llama-3.2-3B-Instruct,
-          Qwen2.5-0.5B-Instruct,
-          Qwen2.5-1.5B-Instruct,
-          Qwen2.5-3B-Instruct
+          Llama-3.2-3B-Instruct
         ]
 
     steps:
@@ -37,16 +34,16 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ env.model }}
+          image: ghcr.io/${{ github.repository_owner }}/llama-server:${{ env.model }}
           build-args: |
             MODEL=${{ matrix.model }}
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ env.model }}
+          image: ghcr.io/${{ github.repository_owner }}/llama-server:${{ env.model }}
           tags: |
-            ghcr.io/${{ github.repository_owner }}/llama-server:${{ env.model }}
+            ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ env.model }}
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
