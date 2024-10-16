@@ -8,7 +8,7 @@ on:
       - "**.md"
       - "**.txt"
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * 0'  # Run at 00:00 UTC on Sunday
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Build Image
+      - name: Build Image with Buildah
         id: build_image
         uses: redhat-actions/buildah-build@v2
         with:
@@ -36,16 +36,14 @@ jobs:
           image: docker-llama-server
           build_args: |
             MODEL=${{ matrix.model }}
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
 
       - name: Convert Model Name to Lowercase
         id: lowercase_model
         run: echo "model=$(echo ${{ matrix.model }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Push To GHCR
+        if: success()  # Only push if build succeeds
         uses: redhat-actions/push-to-registry@v2
-        id: push
         with:
           image: ${{ steps.build_image.outputs.image }}
           tags: |
