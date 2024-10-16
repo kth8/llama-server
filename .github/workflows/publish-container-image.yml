@@ -44,7 +44,7 @@ jobs:
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ env.model }}-${{ github.sha }}
+          image: ghcr.io/${{ github.repository_owner }}/docker-llama-server:${{ env.model }}
           tags: |
             ghcr.io/${{ github.repository_owner }}/${{ env.model }}
           registry: ghcr.io
