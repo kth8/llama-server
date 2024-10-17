@@ -42,6 +42,7 @@ jobs:
         with:
           containerfiles: ./Containerfile
           image: llama-server
+          archs: amd64, arm64
           tags: ${{ env.model }}
           build-args: MODEL=${{ matrix.model }}
 
