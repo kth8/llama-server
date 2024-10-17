@@ -39,7 +39,7 @@ jobs:
           
       - name: Convert model name to lowercase
         id: change_case
-        uses: ASzc/change-string-case-action@v5
+        uses: ASzc/change-string-case-action@v6
         with:
           string: ${{ matrix.model }}
 
