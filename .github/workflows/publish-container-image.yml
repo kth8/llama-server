@@ -71,6 +71,6 @@ jobs:
         with:
           owner-type: user
           token: ${{ secrets.PAT_TOKEN }}
-          repository_owner: ${{ github.repository_owner }}
+          repository-owner: ${{ github.repository_owner }}
           package-name: llama-server
           delete-untagged: true
