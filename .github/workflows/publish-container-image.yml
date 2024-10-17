@@ -32,10 +32,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup QEMU for multi-arch builds
-        shell: bash
-        run: |
-          sudo apt install qemu-user-static
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
           
       - name: Convert model name to lowercase
         id: change_case
