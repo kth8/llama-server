@@ -21,10 +21,15 @@ jobs:
             Qwen2.5-0.5B-Instruct,
             Qwen2.5-1.5B-Instruct,
             Qwen2.5-3B-Instruct,
+            Replete-LLM-V2.5-Qwen-0.5b,
+            Replete-LLM-V2.5-Qwen-1.5b,
+            Replete-LLM-V2.5-Qwen-3b,
             gemma-2-2b-it,
             gemma-2-2b-it-abliterated,
+            dolphin-2.9.4-gemma2-2b,
             Phi-3.5-mini-instruct,
             Phi-3.5-mini-instruct_Uncensored,
+            Nemotron-Mini-4B-Instruct,
             OLMoE-1B-7B-0924-Instruct
           ]
 
