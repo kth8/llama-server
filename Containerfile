@@ -4,7 +4,7 @@ FROM cgr.dev/chainguard/wolfi-base
 
 ARG MODEL
 
-LABEL org.opencontainers.image.description https://huggingface.co/bartowski/${MODEL}-GGUF
+LABEL org.opencontainers.image.description="description here"
 
 RUN apk add --no-cache libcurl4 libstdc++ libgomp
 
