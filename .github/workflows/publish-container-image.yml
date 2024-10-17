@@ -22,8 +22,10 @@ jobs:
             Qwen2.5-0.5B-Instruct,
             Qwen2.5-1.5B-Instruct,
             Qwen2.5-3B-Instruct,
-            Phi-3.5-mini-instruct,
             gemma-2-2b-it,
+            gemma-2-2b-it-abliterated,
+            Phi-3.5-mini-instruct,
+            Phi-3.5-mini-instruct_Uncensored,
             OLMoE-1B-7B-0924-Instruct
           ]
 
