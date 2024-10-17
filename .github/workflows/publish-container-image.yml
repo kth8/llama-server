@@ -34,8 +34,6 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-        platforms: |
-          amd64,arm64
           
       - name: Convert model name to lowercase
         id: change_case
