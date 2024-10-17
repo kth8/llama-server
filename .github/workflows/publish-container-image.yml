@@ -73,4 +73,5 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           repository-owner: ${{ github.repository_owner }}
           package-name: llama-server
+          keep-at-most: 1
           delete-untagged: true
