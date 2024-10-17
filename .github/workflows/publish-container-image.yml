@@ -50,7 +50,7 @@ jobs:
           archs: amd64, arm64
           tags: ${{ env.model }}
           build-args: MODEL=${{ matrix.model }}
-          labels: org.opencontainers.image.description=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
+          labels: io.artifacthub.package.readme-url=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
