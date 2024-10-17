@@ -36,6 +36,11 @@ jobs:
         id: lowercase_model
         run: echo "model=$(echo ${{ matrix.model }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
+      - name: Setup QEMU for multi-arch builds
+        shell: bash
+        run: |
+          sudo apt install qemu-user-static
+
       - name: Build Image with Buildah
         id: build_image
         uses: redhat-actions/buildah-build@v2
