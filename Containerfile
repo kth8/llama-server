@@ -4,8 +4,6 @@ FROM cgr.dev/chainguard/wolfi-base
 
 ARG MODEL
 
-LABEL org.opencontainers.image.description="description here"
-
 RUN apk add --no-cache libcurl4 libstdc++ libgomp
 
 COPY --from=server /llama-server /usr/bin/llama-server
