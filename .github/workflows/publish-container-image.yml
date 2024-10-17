@@ -15,21 +15,19 @@ jobs:
     strategy:
       matrix:
         model:
-          [
-            Llama-3.2-1B-Instruct,
-            Llama-3.2-3B-Instruct,
-            Qwen2.5-0.5B-Instruct,
-            Qwen2.5-1.5B-Instruct,
-            Qwen2.5-3B-Instruct,
-            Qwen2.5-Math-1.5B-Instruct,
-            Qwen2.5-Coder-1.5B-Instruct,
-            Yi-Coder-1.5B,
-            Yi-Coder-1.5B-Chat,
-            gemma-2-2b-it,
-            Phi-3.5-mini-instruct,
-            Nemotron-Mini-4B-Instruct,
-            OLMoE-1B-7B-0924-Instruct
-          ]
+          - Llama-3.2-1B-Instruct
+          - Llama-3.2-3B-Instruct
+          - Qwen2.5-0.5B-Instruct
+          - Qwen2.5-1.5B-Instruct
+          - Qwen2.5-3B-Instruct
+          - Qwen2.5-Math-1.5B-Instruct
+          - Qwen2.5-Coder-1.5B-Instruct
+          - Yi-Coder-1.5B
+          - Yi-Coder-1.5B-Chat
+          - gemma-2-2b-it
+          - Phi-3.5-mini-instruct
+          - Nemotron-Mini-4B-Instruct
+          - OLMoE-1B-7B-0924-Instruct
 
     steps:
       - name: Checkout Repository
@@ -37,7 +35,7 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-          
+
       - name: Convert model name to lowercase
         id: change_case
         uses: ASzc/change-string-case-action@v6
@@ -66,6 +64,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+  clean:
+    runs-on: ubuntu-latest
+    steps:
       - name: GHCR Cleaner
         uses: quartx-analytics/ghcr-cleaner@v1
         with:
