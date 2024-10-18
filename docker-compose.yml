@@ -86,8 +86,8 @@ services:
       - "8012:8080/tcp"
 
   olmo1b:
-    image: ghcr.io/kth8/llama-server:olmo-1b-7b-0924-instruct
-    container_name: olmo1b
+    image: ghcr.io/kth8/llama-server:olmoe-1b-7b-0924-instruct
+    container_name: olmoe1b
     init: true
     ports:
       - "8013:8080/tcp"
