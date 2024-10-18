@@ -85,7 +85,7 @@ services:
     ports:
       - "8012:8080/tcp"
 
-  olmo1b:
+  olmoe1b:
     image: ghcr.io/kth8/llama-server:olmoe-1b-7b-0924-instruct
     container_name: olmoe1b
     init: true
