@@ -1,9 +1,93 @@
+version: "3.8"
+
 services:
   llama1b:
     image: ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
     container_name: llama1b
-    restart: always
     init: true
     ports:
-      - "8080:8080/tcp"
-    read_only: true
+      - "8001:8080/tcp"
+
+  llama3b:
+    image: ghcr.io/kth8/llama-server:llama-3.2-3b-instruct
+    container_name: llama3b
+    init: true
+    ports:
+      - "8002:8080/tcp"
+
+  qwen05b:
+    image: ghcr.io/kth8/llama-server:qwen2.5-0.5b-instruct
+    container_name: qwen05b
+    init: true
+    ports:
+      - "8003:8080/tcp"
+
+  qwen15b:
+    image: ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
+    container_name: qwen15b
+    init: true
+    ports:
+      - "8004:8080/tcp"
+
+  qwen3b:
+    image: ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
+    container_name: qwen3b
+    init: true
+    ports:
+      - "8005:8080/tcp"
+
+  qwenmath15b:
+    image: ghcr.io/kth8/llama-server:qwen2.5-math-1.5b-instruct
+    container_name: qwenmath15b
+    init: true
+    ports:
+      - "8006:8080/tcp"
+
+  qwencoder15b:
+    image: ghcr.io/kth8/llama-server:qwen2.5-coder-1.5b-instruct
+    container_name: qwencoder15b
+    init: true
+    ports:
+      - "8007:8080/tcp"
+
+  yi-coder15b:
+    image: ghcr.io/kth8/llama-server:yi-coder-1.5b
+    container_name: yi-coder15b
+    init: true
+    ports:
+      - "8008:8080/tcp"
+
+  yi-coder15b-chat:
+    image: ghcr.io/kth8/llama-server:yi-coder-1.5b-chat
+    container_name: yi-coder15b-chat
+    init: true
+    ports:
+      - "8009:8080/tcp"
+
+  gemma2-2b-it:
+    image: ghcr.io/kth8/llama-server:gemma-2-2b-it
+    container_name: gemma2-2b-it
+    init: true
+    ports:
+      - "8010:8080/tcp"
+
+  phi35-mini-instruct:
+    image: ghcr.io/kth8/llama-server:phi-3.5-mini-instruct
+    container_name: phi35-mini-instruct
+    init: true
+    ports:
+      - "8011:8080/tcp"
+
+  nemotron-mini-4b-instruct:
+    image: ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
+    container_name: nemotron-mini-4b-instruct
+    init: true
+    ports:
+      - "8012:8080/tcp"
+
+  olmo1b:
+    image: ghcr.io/kth8/llama-server:olmo-1b-7b-0924-instruct
+    container_name: olmo1b
+    init: true
+    ports:
+      - "8013:8080/tcp"
