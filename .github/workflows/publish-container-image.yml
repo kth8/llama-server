@@ -49,7 +49,7 @@ jobs:
         with:
           containerfiles: ./Containerfile
           image: llama-server
-          archs: amd64
+          archs: amd64, arm64
           tags: ${{ steps.change_case.outputs.lowercase }}
           build-args: MODEL=${{ matrix.model }}
           labels: |
