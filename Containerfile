@@ -5,7 +5,7 @@ RUN git clone --depth 1 https://github.com/ggerganov/llama.cpp.git
 
 WORKDIR /llama.cpp
 
-RUN cmake -B build -DCMAKE_C_FLAGS="-mno-avx2" -DCMAKE_CXX_FLAGS="-mno-avx2"
+RUN cmake -B build -DCMAKE_C_FLAGS="-mno-avx -mno-avx2" -DCMAKE_CXX_FLAGS="-mno-avx -mno-avx2"
 RUN cmake --build build --config Release --target llama-server -j $(nproc)
 
 FROM cgr.dev/chainguard/wolfi-base
