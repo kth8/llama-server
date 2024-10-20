@@ -5,7 +5,7 @@ RUN git clone --depth 1 https://github.com/ggerganov/llama.cpp.git
 
 WORKDIR /llama.cpp
 
-RUN cmake -B build -DGGML_AVX2=OFF
+RUN cmake -B build
 RUN cmake --build build --config Release --target llama-server -j $(nproc)
 
 FROM cgr.dev/chainguard/wolfi-base
