@@ -50,44 +50,65 @@ services:
     ports:
       - "8007:8080/tcp"
 
-  yi-coder15b:
+  yicoder15b:
     image: ghcr.io/kth8/llama-server:yi-coder-1.5b
-    container_name: yi-coder15b
+    container_name: yicoder15b
     init: true
     ports:
       - "8008:8080/tcp"
 
-  yi-coder15b-chat:
+  yicoder15bchat:
     image: ghcr.io/kth8/llama-server:yi-coder-1.5b-chat
-    container_name: yi-coder15b-chat
+    container_name: yicoder15bchat
     init: true
     ports:
       - "8009:8080/tcp"
 
-  gemma2-2b-it:
-    image: ghcr.io/kth8/llama-server:gemma-2-2b-it
-    container_name: gemma2-2b-it
+  granite1b:
+    image: ghcr.io/kth8/llama-server:granite-3.0-1b-a400m-instruct
+    container_name: granite1b
     init: true
     ports:
       - "8010:8080/tcp"
 
-  phi35-mini-instruct:
-    image: ghcr.io/kth8/llama-server:phi-3.5-mini-instruct
-    container_name: phi35-mini-instruct
+  granite2b:
+    image: ghcr.io/kth8/llama-server:granite-3.0-2b-instruct
+    container_name: granite2b
     init: true
     ports:
       - "8011:8080/tcp"
 
-  nemotron-mini-4b-instruct:
-    image: ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
-    container_name: nemotron-mini-4b-instruct
+  granite3b:
+    image: ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
+    container_name: granite3b
     init: true
     ports:
       - "8012:8080/tcp"
 
-  olmoe1b:
-    image: ghcr.io/kth8/llama-server:olmoe-1b-7b-0924-instruct
-    container_name: olmoe1b
+  gemma2b:
+    image: ghcr.io/kth8/llama-server:gemma-2-2b-it
+    container_name: gemma2b
     init: true
     ports:
       - "8013:8080/tcp"
+
+  phi35mini:
+    image: ghcr.io/kth8/llama-server:phi-3.5-mini-instruct
+    container_name: phi35mini
+    init: true
+    ports:
+      - "8014:8080/tcp"
+
+  nemotron4b:
+    image: ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
+    container_name: nemotron4b
+    init: true
+    ports:
+      - "8015:8080/tcp"
+
+  olmoe1b7b:
+    image: ghcr.io/kth8/llama-server:olmoe-1b-7b-0924-instruct
+    container_name: olmoe1b7b
+    init: true
+    ports:
+      - "8016:8080/tcp"

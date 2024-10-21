@@ -25,6 +25,9 @@ jobs:
           - Qwen2.5-Coder-1.5B-Instruct
           - Yi-Coder-1.5B
           - Yi-Coder-1.5B-Chat
+          - granite-3.0-1b-a400m-instruct
+          - granite-3.0-2b-instruct
+          - granite-3.0-3b-a800m-instruct
           - gemma-2-2b-it
           - Phi-3.5-mini-instruct
           - Nemotron-Mini-4B-Instruct
