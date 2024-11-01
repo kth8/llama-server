@@ -4,131 +4,43 @@ services:
     image: ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
     container_name: llama1b
     init: true
+    labels:
+      - "io.containers.autoupdate=registry"
     ports:
       - "8001:8080/tcp"
-
-  llama3b:
-    image: ghcr.io/kth8/llama-server:llama-3.2-3b-instruct
-    container_name: llama3b
-    init: true
-    ports:
-      - "8002:8080/tcp"
-
-  qwen05b:
-    image: ghcr.io/kth8/llama-server:qwen2.5-0.5b-instruct
-    container_name: qwen05b
-    init: true
-    ports:
-      - "8003:8080/tcp"
 
   qwen15b:
     image: ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
     container_name: qwen15b
     init: true
+    labels:
+      - "io.containers.autoupdate=registry"
     ports:
-      - "8004:8080/tcp"
-
-  qwen3b:
-    image: ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
-    container_name: qwen3b
-    init: true
-    ports:
-      - "8005:8080/tcp"
-
-  qwenmath15b:
-    image: ghcr.io/kth8/llama-server:qwen2.5-math-1.5b-instruct
-    container_name: qwenmath15b
-    init: true
-    ports:
-      - "8006:8080/tcp"
-
-  qwencoder15b:
-    image: ghcr.io/kth8/llama-server:qwen2.5-coder-1.5b-instruct
-    container_name: qwencoder15b
-    init: true
-    ports:
-      - "8007:8080/tcp"
-
-  yicoder15b:
-    image: ghcr.io/kth8/llama-server:yi-coder-1.5b
-    container_name: yicoder15b
-    init: true
-    ports:
-      - "8008:8080/tcp"
-
-  yicoder15bchat:
-    image: ghcr.io/kth8/llama-server:yi-coder-1.5b-chat
-    container_name: yicoder15bchat
-    init: true
-    ports:
-      - "8009:8080/tcp"
-
-  granite1b:
-    image: ghcr.io/kth8/llama-server:granite-3.0-1b-a400m-instruct
-    container_name: granite1b
-    init: true
-    ports:
-      - "8010:8080/tcp"
-
-  granite2b:
-    image: ghcr.io/kth8/llama-server:granite-3.0-2b-instruct
-    container_name: granite2b
-    init: true
-    ports:
-      - "8011:8080/tcp"
-
-  granite3b:
-    image: ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
-    container_name: granite3b
-    init: true
-    ports:
-      - "8012:8080/tcp"
+      - "8002:8080/tcp"
 
   gemma2b:
     image: ghcr.io/kth8/llama-server:gemma-2-2b-it
     container_name: gemma2b
     init: true
+    labels:
+      - "io.containers.autoupdate=registry"
     ports:
-      - "8013:8080/tcp"
-
-  phi35mini:
-    image: ghcr.io/kth8/llama-server:phi-3.5-mini-instruct
-    container_name: phi35mini
-    init: true
-    ports:
-      - "8014:8080/tcp"
-
-  nemotron4b:
-    image: ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
-    container_name: nemotron4b
-    init: true
-    ports:
-      - "8015:8080/tcp"
-
-  olmoe1b7b:
-    image: ghcr.io/kth8/llama-server:olmoe-1b-7b-0924-instruct
-    container_name: olmoe1b7b
-    init: true
-    ports:
-      - "8016:8080/tcp"
-
-  smollm135m:
-    image: ghcr.io/kth8/llama-server:smollm2-135m-instruct
-    container_name: smollm135m
-    init: true
-    ports:
-      - "8017:8080/tcp"
-
-  smollm360m:
-    image: ghcr.io/kth8/llama-server:smollm2-360m-instruct
-    container_name: smollm360m
-    init: true
-    ports:
-      - "8018:8080/tcp"
+      - "8003:8080/tcp"
 
   smollm17b:
     image: ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
     container_name: smollm17b
     init: true
+    labels:
+      - "io.containers.autoupdate=registry"
     ports:
-      - "8019:8080/tcp"
+      - "8004:8080/tcp"
+
+  granite3b:
+    image: ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
+    container_name: granite3b
+    init: true
+    labels:
+      - "io.containers.autoupdate=registry"
+    ports:
+      - "8005:8080/tcp"
