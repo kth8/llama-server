@@ -112,23 +112,23 @@ services:
     ports:
       - "8016:8080/tcp"
 
-  smollm2-135m:
+  smollm135m:
     image: ghcr.io/kth8/llama-server:smollm2-135m-instruct
-    container_name: smollm2-135m
+    container_name: smollm135m
     init: true
     ports:
       - "8017:8080/tcp"
 
-  smollm2-360m:
+  smollm360m:
     image: ghcr.io/kth8/llama-server:smollm2-360m-instruct
-    container_name: smollm2-360m
+    container_name: smollm360m
     init: true
     ports:
       - "8018:8080/tcp"
 
-  smollm2-1.7b:
+  smollm17b:
     image: ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
-    container_name: smollm2-1.7b
+    container_name: smollm17b
     init: true
     ports:
       - "8019:8080/tcp"
