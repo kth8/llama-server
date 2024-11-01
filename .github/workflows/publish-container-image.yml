@@ -32,6 +32,9 @@ jobs:
           - Phi-3.5-mini-instruct
           - Nemotron-Mini-4B-Instruct
           - OLMoE-1B-7B-0924-Instruct
+          - SmolLM2-135M-Instruct
+          - SmolLM2-360M-Instruct
+          - SmolLM2-1.7B-Instruct
 
     steps:
       - name: Checkout Repository
