@@ -12,6 +12,7 @@ grep -o 'avx2' /proc/cpuinfo
 ```
 Available tags:
 ```
+ghcr.io/kth8/llama-server:amd-olmo-1b-sft-dpo
 ghcr.io/kth8/llama-server:gemma-2-2b-it
 ghcr.io/kth8/llama-server:granite-3.0-1b-a400m-instruct
 ghcr.io/kth8/llama-server:granite-3.0-2b-instruct
