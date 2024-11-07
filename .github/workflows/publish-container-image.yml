@@ -1,4 +1,4 @@
-name: Publish Image to GHCR
+ name: Publish Image to GHCR
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
           - Qwen2.5-1.5B-Instruct
           - Qwen2.5-3B-Instruct
           - Qwen2.5-Math-1.5B-Instruct
-          - Qwen2.5-Coder-1.5B-Instruct
+          - Qwen2.5.1-Coder-1.5B-Instruct
           - Yi-Coder-1.5B
           - Yi-Coder-1.5B-Chat
           - granite-3.0-1b-a400m-instruct
