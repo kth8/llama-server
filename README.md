@@ -1,8 +1,8 @@
-[llama.cpp server](https://github.com/ggerganov/llama.cpp/tree/master/examples/server) and small language model bundled together inside a [Docker](https://www.docker.com) container for easy deployment similar to a [llamafile](https://github.com/Mozilla-Ocho/llamafile). Uses CPU for inference. Requires CPU with AVX2 support from Intel Haswell/AMD Excavator or later generations. Override server settings with environment variables.
+[llama.cpp server](https://github.com/ggerganov/llama.cpp/tree/master/examples/server) and small language model bundled together inside a [Docker](https://www.docker.com) image for easy deployment similar to a [llamafile](https://github.com/Mozilla-Ocho/llamafile). Uses CPU for inference. Requires CPU with AVX2 support from Intel Haswell/AMD Excavator or later generations. Override server settings with environment variables.
 ```
 docker run -d --name llama1b --init -p 8001:8080/tcp ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
 ```
-Verify if the server is running by going to http://localhost:8001 in your web browser or using the terminal:
+Verify if the server is running by going to http://127.0.0.1:8001 in your web browser or using the terminal:
 ```
 curl -N -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
 ```
@@ -27,7 +27,6 @@ ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5.1-coder-1.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
-ghcr.io/kth8/llama-server:qwen2.5-coder-1.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-math-1.5b-instruct
 ghcr.io/kth8/llama-server:smollm2-135m-instruct
