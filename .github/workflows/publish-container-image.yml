@@ -1,5 +1,4 @@
- name: Publish Image to GHCR
-
+name: Publish Image to GHCR
 on:
   push:
     branches:
