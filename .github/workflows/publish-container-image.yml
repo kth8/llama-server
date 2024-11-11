@@ -13,6 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         model:
           - Llama-3.2-1B-Instruct
@@ -42,8 +43,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+#      - name: Set up QEMU
+#        uses: docker/setup-qemu-action@v3
 
       - name: Convert model name to lowercase
         id: change_case
@@ -57,7 +58,7 @@ jobs:
         with:
           containerfiles: ./Containerfile
           image: llama-server
-          archs: amd64, arm64
+#          archs: amd64, arm64
           tags: ${{ steps.change_case.outputs.lowercase }}
           build-args: MODEL=${{ matrix.model }}
           labels: |
