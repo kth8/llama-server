@@ -4,7 +4,7 @@ docker run -d --name llama1b --init -p 8001:8080/tcp ghcr.io/kth8/llama-server:l
 ```
 Verify if the server is running by going to http://127.0.0.1:8001 in your web browser or using the terminal:
 ```
-curl -N -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
+curl http://127.0.0.1:8001/v1/chat/completions -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Hello"}]}'
 ```
 Check if your CPU supports AVX2 on Linux:
 ```
