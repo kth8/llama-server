@@ -66,21 +66,21 @@ jobs:
         id: server
         with:
           run: |
-            podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
+            podman run -d -p 8001:8080 localhost/llama-server:${{ steps.change_case.outputs.lowercase }}
 
       - name: Wait for server to start
         uses: juliangruber/sleep-action@v2.0.0
         with:
           time: 5s
 
-      - name: Curl chat completion
+      - name: Get chat completion
         uses: mathiasvr/command-output@v2.0.0
         id: curl
         with:
           run: |
-            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you?"}]}' http://127.0.0.1:8001/v1/chat/completions
+            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' http://127.0.0.1:8001/v1/chat/completions
 
-      - name: Format reasponse
+      - name: Format response
         uses: direct-actions/jq@v0.1.0
         with:
           input: ${{ steps.curl.outputs.stdout }}
