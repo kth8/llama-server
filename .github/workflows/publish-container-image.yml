@@ -69,7 +69,10 @@ jobs:
         run:  podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
 
       - name: Test response
-        run: curl http://127.0.0.1:8001/v1/chat/completions -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}'
+        run: |
+          curl http://127.0.0.1:8001/v1/chat/completions \
+          -H "Content-Type: application/json" \
+          -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}'
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
