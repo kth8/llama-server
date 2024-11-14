@@ -65,9 +65,10 @@ jobs:
         uses: k8s-crafts/podman-cli-action@v1
 
       - name: Run server
-        uses: kohlerdominik/docker-run-action@v2.0.0
+        uses: tonys-code-base/run-container-action@v1.0.0
         with:
-          image: llama-server:${{ steps.change_case.outputs.lowercase }}
+          image: llama-server
+          tag: ${{ steps.change_case.outputs.lowercase }}
           options: -p 8001:8080
 
       - name: Wait for server to start
