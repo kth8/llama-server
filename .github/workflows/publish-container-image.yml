@@ -70,10 +70,18 @@ jobs:
           time: 5s
 
       - name: Get response
-        uses: dedene/curl@v1
-        with:
-          args: -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
+        id: curl
+        run: |
+          curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
 
+      - name: Get response
+        uses: dedene/curl@v1
+        id: curl
+        with:
+          args: -v -H "Content-Type: application/json" \
+            -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' \
+            http://127.0.0.1:8001/v1/chat/completions
+          
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
         with:
