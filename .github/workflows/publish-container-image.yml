@@ -35,7 +35,6 @@ jobs:
           - SmolLM2-1.7B-Instruct
           - Phi-3.5-mini-instruct
           - Nemotron-Mini-4B-Instruct
-          - OLMoE-1B-7B-0924-Instruct
           - AMD-OLMo-1B-SFT-DPO
 
     steps:
@@ -65,6 +64,12 @@ jobs:
             org.opencontainers.image.url=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=${{ matrix.model }}-Q4_0_8_8.gguf
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
+
+      - name: Run Image
+        run:  podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
+
+      - name: Test response
+        run: curl http://127.0.0.1:8001/v1/chat/completions -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}'
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2

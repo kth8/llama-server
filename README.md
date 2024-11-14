@@ -19,7 +19,6 @@ ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
 ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
 ghcr.io/kth8/llama-server:llama-3.2-3b-instruct
 ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
-ghcr.io/kth8/llama-server:olmoe-1b-7b-0924-instruct
 ghcr.io/kth8/llama-server:phi-3.5-mini-instruct
 ghcr.io/kth8/llama-server:qwen2.5-0.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
