@@ -62,31 +62,34 @@ jobs:
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
       - name: Run server
-        run: |
-          podman run -d -p 8001:8080 --name ${{ steps.change_case.outputs.lowercase }} llama-server:${{ steps.change_case.outputs.lowercase }}
+        uses: mathiasvr/command-output@v2.0.0
+        id: server
+        with:
+          run: |
+            podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
 
       - name: Wait for server to start
         uses: juliangruber/sleep-action@v2.0.0
         with:
           time: 5s
 
-      - name: Get response
+      - name: Curl chat completion
         uses: mathiasvr/command-output@v2.0.0
         id: curl
         with:
           run: |
-            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
-           
-      - name: Format response
+            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you?"}]}' http://127.0.0.1:8001/v1/chat/completions
+
+      - name: Format reasponse
         uses: direct-actions/jq@v0.1.0
         with:
           input: ${{ steps.curl.outputs.stdout }}
           filter: '.choices[0].message.content'
           raw-output: true
 
-      - name: Print logs
+      - name: Print server logs
         run: |
-          podman logs ${{ steps.change_case.outputs.lowercase }}
+          podman logs ${{ steps.server.outputs.stdout }}
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
