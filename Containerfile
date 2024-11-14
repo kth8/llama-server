@@ -14,9 +14,8 @@ ARG MODEL
 
 RUN apk add --no-cache libcurl4 libstdc++ libgomp
 
+COPY --from=build /llama.cpp/lib /
 COPY --from=build /llama.cpp/build/bin/llama-server /llama-server
-COPY --from=build /llama.cpp/build/src/libllama.so /libllama.so
-COPY --from=build /llama.cpp/build/ggml/src/libggml.so /libggml.so
 
 ADD https://huggingface.co/bartowski/${MODEL}-GGUF/resolve/main/${MODEL}-Q4_0_8_8.gguf /
 
