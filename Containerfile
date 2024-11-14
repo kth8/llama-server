@@ -20,9 +20,6 @@ COPY --from=build /llama.cpp/build/ggml/src/libggml.so /libggml.so
 
 ADD https://huggingface.co/bartowski/${MODEL}-GGUF/resolve/main/${MODEL}-Q4_0_8_8.gguf /
 
-ENV LLAMA_ARG_FLASH_ATTN=1
-ENV LLAMA_ARG_CACHE_TYPE_K=q8_0
-ENV LLAMA_ARG_CACHE_TYPE_V=q8_0
 ENV LLAMA_ARG_N_PARALLEL=3
 ENV LLAMA_ARG_CTX_SIZE=4096
 ENV LLAMA_ARG_HOST=0.0.0.0
