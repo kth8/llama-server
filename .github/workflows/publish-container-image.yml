@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: "0 0 * * 0"
 
+env:
+    IMAGE_NAME: llama-server
+
 jobs:
   build:
     runs-on: ubuntu-24.04
@@ -60,7 +63,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: ./Containerfile
-          image: llama-server
+          image: ${{ env.IMAGE_NAME }}
           tags: ${{ steps.change_case.outputs.lowercase }}
           build-args: MODEL=${{ matrix.model }}
           labels: |
@@ -74,7 +77,7 @@ jobs:
         id: container
         with:
           run: |
-            podman run -d -p 8001:8080 localhost/llama-server:${{ steps.change_case.outputs.lowercase }}
+            podman run -d -p 8001:8080 localhost/${{ env.IMAGE_NAME }}:${{ steps.change_case.outputs.lowercase }}
 
       - name: Wait for server to load
         uses: juliangruber/sleep-action@v2.0.0
@@ -86,7 +89,7 @@ jobs:
         id: api
         with:
           run: |
-            curl -v \
+            curl -v -X POST \
             -H "Content-Type: application/json" \
             -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' \
             http://127.0.0.1:8001/v1/chat/completions
@@ -121,5 +124,5 @@ jobs:
           owner-type: user
           token: ${{ secrets.PAT_TOKEN }}
           repository-owner: ${{ github.repository_owner }}
-          package-name: llama-server
+          package-name: ${{ env.IMAGE_NAME }}
           delete-untagged: true
