@@ -21,7 +21,7 @@ COPY --from=build /llama.cpp/build/ggml/src/ggml-amx/libggml-amx.so /
 COPY --from=build /llama.cpp/build/ggml/src/libggml-base.so /
 COPY --from=build /llama.cpp/build/bin/llama-server /
 
-ADD https://huggingface.co/bartowski/${MODEL}-GGUF/resolve/main/${MODEL}-Q4_0_8_8.gguf /
+COPY ${MODEL}-Q4_0_8_8.gguf /
 
 ENV LLAMA_ARG_N_PARALLEL=3
 ENV LLAMA_ARG_CTX_SIZE=4096
