@@ -71,7 +71,7 @@ jobs:
 
       - name: Start server
         uses: mathiasvr/command-output@v2.0.0
-        id: server
+        id: container
         with:
           run: |
             podman run -d -p 8001:8080 localhost/llama-server:${{ steps.change_case.outputs.lowercase }}
@@ -82,22 +82,25 @@ jobs:
           time: 5s
 
       - name: Get chat completion
-        uses: mathiasvr/command-output@v2.0.0
-        id: curl
+        uses: prasiman/gocurl@v1
+        id: api
         with:
-          run: |
-            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' http://127.0.0.1:8001/v1/chat/completions
-
+          url: http://127.0.0.1:8001/v1/chat/completions
+          method: "POST"
+          accept: 200
+          body: '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}'
+          log-response: true
+            
       - name: Format response
         uses: direct-actions/jq@v0.1.0
         with:
-          input: ${{ steps.curl.outputs.stdout }}
+          input: ${{ steps.api.outputs.response }}
           filter: '.choices[0].message.content'
           raw-output: true
 
       - name: Print server logs
         run: |
-          podman logs ${{ steps.server.outputs.stdout }}
+          podman logs ${{ steps.container.outputs.stdout }}
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
