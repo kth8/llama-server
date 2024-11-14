@@ -62,12 +62,16 @@ jobs:
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
       - name: Run server
-        run: podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
+        id: run
+        run: podman run -d -p 8001:8080 --name ${{ steps.change_case.outputs.lowercase }} llama-server:${{ steps.change_case.outputs.lowercase }}
 
       - name: Wait for server to start
         uses: juliangruber/sleep-action@v2.0.0
         with:
-          time: 5s
+          time: 10s
+
+      - name: Inspect server
+        run: podman inspect ${{ steps.change_case.outputs.lowercase }}
 
       - name: Get response
         run: |
