@@ -82,19 +82,16 @@ jobs:
           time: 5s
 
       - name: Get chat completion
-        uses: prasiman/gocurl@v1
+        uses: StarUbiquitous/command-output@v1.0.1
         id: api
         with:
-          url: http://127.0.0.1:8001/v1/chat/completions
-          method: "POST"
-          accept: 200
-          body: '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}'
-          log-response: true
-            
+          run: |
+            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' http://127.0.0.1:8001/v1/chat/completions
+
       - name: Format response
         uses: direct-actions/jq@v0.1.0
         with:
-          input: ${{ steps.api.outputs.response }}
+          input: ${{ steps.api.outputs.stdout }}
           filter: '.choices[0].message.content'
           raw-output: true
 
