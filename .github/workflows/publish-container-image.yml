@@ -1,4 +1,5 @@
 name: Publish Image to GHCR
+
 on:
   push:
     branches:
@@ -25,7 +26,6 @@ jobs:
           - Qwen2.5.1-Coder-1.5B-Instruct
           - Qwen2.5-Coder-3B-Instruct
           - Qwen2.5-Math-1.5B-Instruct
-          - Yi-Coder-1.5B
           - Yi-Coder-1.5B-Chat
           - granite-3.0-1b-a400m-instruct
           - granite-3.0-2b-instruct
@@ -41,9 +41,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      #      - name: Set up QEMU
-      #        uses: docker/setup-qemu-action@v3
-
       - name: Convert model name to lowercase
         id: change_case
         uses: ASzc/change-string-case-action@v6
@@ -56,7 +53,6 @@ jobs:
         with:
           containerfiles: ./Containerfile
           image: llama-server
-          #          archs: amd64, arm64
           tags: ${{ steps.change_case.outputs.lowercase }}
           build-args: MODEL=${{ matrix.model }}
           labels: |
@@ -65,8 +61,16 @@ jobs:
             org.opencontainers.image.description=${{ matrix.model }}-Q4_0_8_8.gguf
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
-      - name: Run Image
-        run:  podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
+      - name: Emulate Docker CLI with Podman
+        uses: k8s-crafts/podman-cli-action@v1
+
+      - name: Run server
+        uses: tj-actions/docker-run@v2
+        with:
+          image: llama-server:${{ steps.change_case.outputs.lowercase }}
+          name: ${{ steps.change_case.outputs.lowercase }}
+          options: |
+            -p 8001:8080
 
       - name: Wait for server to start
         uses: juliangruber/sleep-action@v2.0.0
@@ -74,10 +78,12 @@ jobs:
           time: 5s
 
       - name: Test response
-        run: |
-          curl -s http://127.0.0.1:8001/v1/chat/completions \
-          -H "Content-Type: application/json" \
-          -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}'
+        uses: dedene/curl@v1
+        with:
+          args: |
+            -v -H "Content-Type: application/json" \
+            -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' \
+            http://127.0.0.1:8001/v1/chat/completions
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
