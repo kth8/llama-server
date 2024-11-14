@@ -67,7 +67,7 @@ jobs:
       - name: Run server
         uses: tonys-code-base/run-container-action@v1.0.0
         with:
-          docker-registry-url: local
+          docker-registry-url: localhost
           image: llama-server
           tag: ${{ steps.change_case.outputs.lowercase }}
           options: -p 8001:8080
