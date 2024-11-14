@@ -65,10 +65,10 @@ jobs:
         uses: k8s-crafts/podman-cli-action@v1
 
       - name: Run server
-        uses: addnab/docker-run-action@v3
+        uses: CoronelEzequiel/run-docker@v1
         with:
           image: localhost/llama-server:${{ steps.change_case.outputs.lowercase }}
-          options: -p 8001:8080
+          ports: 8001:8080
 
       - name: Wait for server to start
         uses: juliangruber/sleep-action@v2.0.0
