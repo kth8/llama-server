@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         model:
           - Llama-3.2-1B-Instruct
@@ -60,9 +60,6 @@ jobs:
             org.opencontainers.image.url=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=${{ matrix.model }}-Q4_0_8_8.gguf
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
-
-      - name: Emulate Docker CLI with Podman
-        uses: k8s-crafts/podman-cli-action@v1
 
       - name: Run server
         run: podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
