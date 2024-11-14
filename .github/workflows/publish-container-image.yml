@@ -70,6 +70,9 @@ jobs:
         with:
           time: 10s
 
+      - name: Server logs
+        run: podman logs ${{ steps.change_case.outputs.lowercase }}
+
       - name: Inspect server
         run: podman inspect ${{ steps.change_case.outputs.lowercase }}
 
