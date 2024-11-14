@@ -61,6 +61,28 @@ jobs:
             org.opencontainers.image.description=${{ matrix.model }}-Q4_0_8_8.gguf
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
+      - name: Run server
+        id: run
+        run: podman run -d -p 8001:8080 --name ${{ steps.change_case.outputs.lowercase }} llama-server:${{ steps.change_case.outputs.lowercase }}
+
+      - name: Wait for server to start
+        uses: juliangruber/sleep-action@v2.0.0
+        with:
+          time: 5s
+
+      - name: Get response
+        uses: mathiasvr/command-output@v2.0.0
+        id: curl
+        with:
+           run: curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
+           
+      - name: Print response
+        uses: direct-actions/jq@v0.1.0
+        with:
+          filter: ''
+          input: ${{ steps.curl.outputs.stdout }}
+          raw-output: true
+
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
         with:
