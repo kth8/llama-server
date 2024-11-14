@@ -68,9 +68,14 @@ jobs:
       - name: Run Image
         run:  podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
 
+      - name: Wait for server to start
+        uses: juliangruber/sleep-action@v2.0.0
+        with:
+          time: 5s
+
       - name: Test response
         run: |
-          curl http://127.0.0.1:8001/v1/chat/completions \
+          curl -s http://127.0.0.1:8001/v1/chat/completions \
           -H "Content-Type: application/json" \
           -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}'
 
