@@ -82,11 +82,14 @@ jobs:
           time: 5s
 
       - name: Get chat completion
-        uses: StarUbiquitous/command-output@v1.0.1
+        uses: mathiasvr/command-output@v2.0.0
         id: api
         with:
           run: |
-            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' http://127.0.0.1:8001/v1/chat/completions
+            curl -v \
+            -H "Content-Type: application/json" \
+            -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' \
+            http://127.0.0.1:8001/v1/chat/completions
 
       - name: Format response
         uses: direct-actions/jq@v0.1.0
