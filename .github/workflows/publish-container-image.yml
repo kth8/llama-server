@@ -47,6 +47,23 @@ jobs:
         with:
           string: ${{ matrix.model }}
 
+      - name: Install huggingface-cli
+        uses: BSFishy/pip-action@v1
+        with:
+         packages: huggingface_hub[cli]
+          
+      - name: Download GGUF
+        run: |
+          huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-Q4_0_8_8.gguf" --local-dir .
+          
+      - name: PWD
+        run: |
+          pwd
+          
+      - name: ls
+        run: |
+          ls -lha
+
       - name: Build Image with Buildah
         id: build_image
         uses: redhat-actions/buildah-build@v2
@@ -74,17 +91,17 @@ jobs:
           time: 5s
 
       - name: Get chat completion
-        uses: dedene/curl@v1
+        uses: mathiasvr/command-output@v2.0.0
         id: curl
         with:
-          args: |
-             -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' http://127.0.0.1:8001/v1/chat/completions
+          run: |
+            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"who are you and what can you do?"}]}' http://127.0.0.1:8001/v1/chat/completions
 
       - name: Format response
         uses: direct-actions/jq@v0.1.0
         with:
-          input: ${{ steps.curl.curl_output }}
-          filter: ".choices[0].message.content"
+          input: ${{ steps.curl.outputs.stdout }}
+          filter: '.choices[0].message.content'
           raw-output: true
 
       - name: Print server logs
