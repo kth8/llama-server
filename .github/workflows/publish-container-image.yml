@@ -80,9 +80,8 @@ jobs:
       - name: Print response
         uses: direct-actions/jq@v0.1.0
         with:
-          filter: ''
+          filter: '.'
           input: ${{ steps.curl.outputs.stdout }}
-          raw-output: true
 
       - name: Push Image to GHCR
         uses: redhat-actions/push-to-registry@v2
