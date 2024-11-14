@@ -65,17 +65,14 @@ jobs:
         uses: k8s-crafts/podman-cli-action@v1
 
       - name: Run server
-        uses: addnab/docker-run-action@v3
-        with:
-          image: localhost/llama-server:${{ steps.change_case.outputs.lowercase }}
-          options: -p 8001:8080
+        run: podman run -d -p 8001:8080 llama-server:${{ steps.change_case.outputs.lowercase }}
 
       - name: Wait for server to start
         uses: juliangruber/sleep-action@v2.0.0
         with:
           time: 5s
 
-      - name: Test response
+      - name: Get response
         uses: dedene/curl@v1
         with:
           args: |
