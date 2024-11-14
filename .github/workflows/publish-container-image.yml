@@ -1,5 +1,4 @@
 name: Publish Image to GHCR
-
 on:
   push:
     branches:
@@ -55,14 +54,6 @@ jobs:
       - name: Download GGUF
         run: |
           huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-Q4_0_8_8.gguf" --local-dir .
-          
-      - name: PWD
-        run: |
-          pwd
-          
-      - name: ls
-        run: |
-          ls -lha
 
       - name: Build Image with Buildah
         id: build_image
@@ -78,14 +69,14 @@ jobs:
             org.opencontainers.image.description=${{ matrix.model }}-Q4_0_8_8.gguf
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
-      - name: Run server
+      - name: Start server
         uses: mathiasvr/command-output@v2.0.0
         id: server
         with:
           run: |
             podman run -d -p 8001:8080 localhost/llama-server:${{ steps.change_case.outputs.lowercase }}
 
-      - name: Wait for server to start
+      - name: Wait for server to load
         uses: juliangruber/sleep-action@v2.0.0
         with:
           time: 5s
