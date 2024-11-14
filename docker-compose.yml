@@ -18,15 +18,6 @@ services:
     ports:
       - "8002:8080/tcp"
 
-  gemma2b:
-    image: ghcr.io/kth8/llama-server:gemma-2-2b-it
-    container_name: gemma2b
-    init: true
-    labels:
-      - "io.containers.autoupdate=registry"
-    ports:
-      - "8003:8080/tcp"
-
   smollm17b:
     image: ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
     container_name: smollm17b
@@ -34,13 +25,13 @@ services:
     labels:
       - "io.containers.autoupdate=registry"
     ports:
-      - "8004:8080/tcp"
+      - "8003:8080/tcp"
 
-  granite3b:
-    image: ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
-    container_name: granite3b
+  amd1b:
+    image: ghcr.io/kth8/llama-server:amd-olmo-1b-sft-dpo
+    container_name: amd1b
     init: true
     labels:
       - "io.containers.autoupdate=registry"
     ports:
-      - "8005:8080/tcp"
+      - "8004:8080/tcp"
