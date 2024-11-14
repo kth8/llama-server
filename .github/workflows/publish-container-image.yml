@@ -65,7 +65,7 @@ jobs:
         uses: k8s-crafts/podman-cli-action@v1
 
       - name: Run server
-        uses: kohlerdominik/docker-run-action@v2
+        uses: kohlerdominik/docker-run-action@v2.0.0
         with:
           image: llama-server:${{ steps.change_case.outputs.lowercase }}
           options: -p 8001:8080
