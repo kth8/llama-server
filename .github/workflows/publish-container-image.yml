@@ -74,7 +74,8 @@ jobs:
         uses: mathiasvr/command-output@v2.0.0
         id: curl
         with:
-           run: curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
+          run: |
+            curl -v -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is the sky blue?"}]}' http://127.0.0.1:8001/v1/chat/completions
            
       - name: Print response
         uses: direct-actions/jq@v0.1.0
