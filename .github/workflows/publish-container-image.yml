@@ -21,7 +21,7 @@ jobs:
       - uses: albertcolom/delete-package-container@main
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          image: ${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}
+          image: ${{ github.actor }}/${{ env.IMAGE_NAME }}
 
   build:
     runs-on: ubuntu-24.04
