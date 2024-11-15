@@ -11,6 +11,7 @@ on:
 
 env:
     IMAGE_NAME: llama-server
+    QUANT: Q4_0_8_8
 
 jobs:
   build:
@@ -29,7 +30,6 @@ jobs:
           - Qwen2.5-Coder-0.5B-Instruct
           - Qwen2.5.1-Coder-1.5B-Instruct
           - Qwen2.5-Coder-3B-Instruct
-          - Qwen2.5-Math-1.5B-Instruct
           - Replete-LLM-V2.5-Qwen-0.5b
           - Replete-LLM-V2.5-Qwen-1.5b
           - Replete-LLM-V2.5-Qwen-3b
@@ -39,7 +39,6 @@ jobs:
           - SmolLM2-135M-Instruct
           - SmolLM2-360M-Instruct
           - SmolLM2-1.7B-Instruct
-          - Phi-3.5-mini-instruct
           - Nemotron-Mini-4B-Instruct
           - AMD-OLMo-1B-SFT-DPO
           - Yi-Coder-1.5B-Chat
@@ -61,7 +60,7 @@ jobs:
           
       - name: Download GGUF
         run: |
-          huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-Q4_0_8_8.gguf" --local-dir .
+          huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}" --local-dir .
 
       - name: Build Image with Buildah
         id: build_image
@@ -70,11 +69,13 @@ jobs:
           containerfiles: ./Containerfile
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ steps.change_case.outputs.lowercase }}
-          build-args: MODEL=${{ matrix.model }}
+          build-args: |
+            MODEL=${{ matrix.model }}
+            QUANT=${{ env.QUANT }}"
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/${{ github.repository }}/main/README.md
             org.opencontainers.image.url=https://github.com/${{ github.repository }}
-            org.opencontainers.image.description=${{ matrix.model }}-Q4_0_8_8.gguf
+            org.opencontainers.image.description=${{ matrix.model }}-${{ env.QUANT }}".gguf
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
       - name: Start server
