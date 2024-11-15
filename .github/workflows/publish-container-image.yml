@@ -16,8 +16,8 @@ env:
 jobs:
   md:
     runs-on: ubuntu-24.04
-    permissions:
-      pull-requests: write
+#    permissions:
+#      pull-requests: write
 
     steps:
       - name: Checkout Repository
