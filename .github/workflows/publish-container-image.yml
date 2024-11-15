@@ -18,7 +18,7 @@ jobs:
     permissions:
       packages: write
     steps:
-      - uses: paulushcgcj/delete-github-package@v1.0.0
+      - uses: paulushcgcj/delete-github-package@main
         with:
           token: ${{ github.token }}
           type: container
