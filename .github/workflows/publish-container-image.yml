@@ -35,7 +35,7 @@ jobs:
 #          - granite-3.0-2b-instruct
 #          - granite-3.0-3b-a800m-instruct
           - SmolLM2-135M-Instruct
-#          - SmolLM2-360M-Instruct
+          - SmolLM2-360M-Instruct
 #          - SmolLM2-1.7B-Instruct
 #          - Nemotron-Mini-4B-Instruct
 #          - AMD-OLMo-1B-SFT-DPO
@@ -143,7 +143,7 @@ jobs:
         id: skopeo
         with:
           run: |
-            skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }} | jq -r .Tags[]
+            skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }} | jq -r '.Repository as $repo | .Tags[] | "\($repo):\(.)"'
 
       - name: Example
         uses: gnpaone/dynamic-update-readme@v1.0.2
