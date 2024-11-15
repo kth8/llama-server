@@ -23,7 +23,6 @@ jobs:
         model:
           - Llama-3.2-1B-Instruct
           - Llama-3.2-3B-Instruct
-          - Llama3.2-3B-ShiningValiant2
           - Qwen2.5-0.5B-Instruct
           - Qwen2.5-1.5B-Instruct
           - Qwen2.5-3B-Instruct
@@ -128,7 +127,7 @@ jobs:
         uses: dataaxiom/ghcr-cleanup-action@v1.0.13
         with:
           keep-n-tagged: 1
-          older-than: 1 hour
+          older-than: 30 minutes
           delete-ghost-images: true
           delete-untagged: true
           token: ${{ secrets.GITHUB_TOKEN }}
