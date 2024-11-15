@@ -39,7 +39,7 @@ jobs:
           - SmolLM2-135M-Instruct
           - SmolLM2-360M-Instruct
           - SmolLM2-1.7B-Instruct
-          - Nemotron-Mini-4B-Instruct
+#          - Nemotron-Mini-4B-Instruct
           - AMD-OLMo-1B-SFT-DPO
           - Yi-Coder-1.5B-Chat
 
@@ -161,4 +161,7 @@ jobs:
         uses: gnpaone/dynamic-update-readme@v1.0.2
         with:
           marker_text: "EXAMPLE"
-          markdown_text: ${{ steps.jq.outputs.output }}
+          markdown_text: |
+            ```
+            ${{ steps.jq.outputs.output }}
+            ```
