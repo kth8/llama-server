@@ -16,8 +16,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    permissions:
-      packages: write
     strategy:
       fail-fast: true
       matrix:
@@ -123,8 +121,6 @@ jobs:
   prune:
     runs-on: ubuntu-24.04
     needs: build
-    permissions:
-      packages: write
     steps:
       - name: cleanup
         uses: dataaxiom/ghcr-cleanup-action@v1.0.13
@@ -138,8 +134,6 @@ jobs:
   tags:
     runs-on: ubuntu-24.04
     needs: prune
-    permissions:
-      pull-requests: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
