@@ -47,16 +47,16 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@main
 
       - name: Convert model name to lowercase
         id: change_case
-        uses: ASzc/change-string-case-action@v6
+        uses: ASzc/change-string-case-action@main
         with:
           string: ${{ matrix.model }}
 
       - name: Install huggingface-cli
-        uses: BSFishy/pip-action@v1
+        uses: BSFishy/pip-actio@main
         with:
          packages: huggingface_hub[cli]
           
@@ -66,7 +66,7 @@ jobs:
 
       - name: Build Image with Buildah
         id: build_image
-        uses: redhat-actions/buildah-build@v2
+        uses: redhat-actions/buildah-build@main
         with:
           containerfiles: ./Containerfile
           image: ${{ env.IMAGE_NAME }}
@@ -79,19 +79,19 @@ jobs:
             org.opencontainers.image.source=https://huggingface.co/bartowski/${{ matrix.model }}-GGUF
 
       - name: Start server
-        uses: mathiasvr/command-output@v2.0.0
+        uses: mathiasvr/command-output@main
         id: container
         with:
           run: |
             podman run -d -p 8001:8080 localhost/${{ env.IMAGE_NAME }}:${{ steps.change_case.outputs.lowercase }}
 
       - name: Wait for server to load
-        uses: juliangruber/sleep-action@v2.0.0
+        uses: juliangruber/sleep-action@main
         with:
           time: 5s
 
       - name: Get chat completion
-        uses: mathiasvr/command-output@v2.0.0
+        uses: mathiasvr/command-output@main
         id: api
         with:
           run: |
@@ -101,7 +101,7 @@ jobs:
             http://127.0.0.1:8001/v1/chat/completions
 
       - name: Format response
-        uses: direct-actions/jq@v0.1.0
+        uses: direct-actions/jq@main
         with:
           input: ${{ steps.api.outputs.stdout }}
           filter: '.choices[0].message.content'
@@ -112,7 +112,7 @@ jobs:
           podman logs ${{ steps.container.outputs.stdout }}
 
       - name: Push Image to GHCR
-        uses: redhat-actions/push-to-registry@v2
+        uses: redhat-actions/push-to-registry@main
         with:
           image: ${{ steps.build_image.outputs.image }}
           tags: ${{ steps.build_image.outputs.tags }}
@@ -124,10 +124,25 @@ jobs:
     runs-on: ubuntu-24.04
     needs: build
     steps:
-      - uses: dataaxiom/ghcr-cleanup-action@v1.0.13
+      - name: cleanup
+        uses: dataaxiom/ghcr-cleanup-action@main
         with:
           keep-n-tagged: 1
           older-than: 1 hour
           delete-ghost-images: true
           delete-untagged: true
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get tags
+        uses: mathiasvr/command-output@main
+        id: skopeo
+        with:
+          run: |
+            skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}
+
+      - name: Format tags
+        uses: direct-actions/jq@main
+        with:
+          input: ${{ steps.skopeo.outputs.stdout }}
+          filter: '.Repository as $repo | .Tags[] | "\($repo):\(.)"'
+          raw-output: true
