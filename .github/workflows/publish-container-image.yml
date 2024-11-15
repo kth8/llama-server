@@ -153,12 +153,19 @@ jobs:
           filter: '.Repository as $repo | .Tags[] | "\($repo):\(.)"'
           raw-output: true
 
+      - name: JSON to Outputs
+        uses: benlei/json2outputs@v1
+        id: json
+        with:
+          json: ${{ steps.skopeo.outputs.stdout }}
+
       - name: Print tags
         run: |
           echo "${{ steps.skopeo.outputs.stdout }}"
           echo "###############"
           echo "${{ fromJSON(steps.skopeo.outputs.stdout).Tags }}"
           echo "###############"
+          echo ${{ steps.json.outputs['Tags[]'] }}
 #          echo "${{ fromJSON(steps.jq.outputs.output) }}"
 #          echo "###############"
 #          echo "${{ steps.jq.outputs.output }}"
