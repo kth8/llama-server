@@ -157,8 +157,8 @@ jobs:
         run: |
           echo "${{ steps.skopeo.outputs.stdout }}"
           echo "###############"
-#          echo "${{ fromJSON(steps.skopeo.outputs.stdout) }}"
-#          echo "###############"
+          echo "${{ fromJSON(steps.skopeo.outputs.stdout) }}"
+          echo "###############"
 #          echo "${{ fromJSON(steps.jq.outputs.output) }}"
 #          echo "###############"
 #          echo "${{ steps.jq.outputs.output }}"
