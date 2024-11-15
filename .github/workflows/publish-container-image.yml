@@ -13,20 +13,8 @@ env:
     IMAGE_NAME: llama-server
 
 jobs:
-  cleanup:
-    runs-on: ubuntu-24.04
-    permissions:
-      packages: write
-    steps:
-      - uses: paulushcgcj/delete-github-package@main
-        with:
-          token: ${{ github.token }}
-          type: container
-          name: ${{ env.IMAGE_NAME }}
-          user: ${{ github.repository_owner }}
   build:
     runs-on: ubuntu-24.04
-    needs: cleanup
     permissions:
       packages: write
     strategy:
@@ -132,15 +120,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-  prune-untagged:
+  remove_old:
     runs-on: ubuntu-24.04
     needs: build
     steps:
-      - name: Prune Untagged Images
-        uses: quartx-analytics/ghcr-cleaner@v1
+      - uses: dataaxiom/ghcr-cleanup-action@v1.0.13
         with:
-          owner-type: user
-          token: ${{ secrets.PAT_TOKEN }}
-          repository-owner: ${{ github.repository_owner }}
-          package-name: ${{ env.IMAGE_NAME }}
+          keep-n-tagged: 1
+          older-than: 1 hour
+          delete-ghost-images: true
           delete-untagged: true
+          token: ${{ secrets.GITHUB_TOKEN }}
