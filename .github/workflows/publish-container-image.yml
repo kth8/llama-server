@@ -150,4 +150,4 @@ jobs:
         with:
           marker_text: "EXAMPLE"
           markdown_text: |
-            ${{ fromJSON(steps.skopeo.outputs.stdout) }}
+            ${{ steps.skopeo.outputs.stdout }}
