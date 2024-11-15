@@ -19,18 +19,18 @@ ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
 ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
 ghcr.io/kth8/llama-server:llama-3.2-3b-instruct
 ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
-ghcr.io/kth8/llama-server:phi-3.5-mini-instruct
 ghcr.io/kth8/llama-server:qwen2.5-0.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5.1-coder-1.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
-ghcr.io/kth8/llama-server:qwen2.5-math-1.5b-instruct
+ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-0.5b
+ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-1.5b
+ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-3b
 ghcr.io/kth8/llama-server:smollm2-135m-instruct
 ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
 ghcr.io/kth8/llama-server:smollm2-360m-instruct
-ghcr.io/kth8/llama-server:yi-coder-1.5b
 ghcr.io/kth8/llama-server:yi-coder-1.5b-chat
 ```
 All model GGUF files provided by [bartowski](https://huggingface.co/bartowski).
