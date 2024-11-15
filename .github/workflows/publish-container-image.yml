@@ -32,7 +32,7 @@ jobs:
 #          - Replete-LLM-V2.5-Qwen-1.5b
 #          - Replete-LLM-V2.5-Qwen-3b
           - granite-3.0-1b-a400m-instruct
-          - granite-3.0-2b-instruct
+#          - granite-3.0-2b-instruct
 #          - granite-3.0-3b-a800m-instruct
           - SmolLM2-135M-Instruct
           - SmolLM2-360M-Instruct
@@ -138,17 +138,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
     
-      - name: Get tags
+      - name: Get tags1
         uses: mathiasvr/command-output@v2.0.0
         id: skopeo
         with:
           run: |
             skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}
 
-      - name: Get tags
+      - name: Get tags2
         id: tags
         run: |
-          tag=$(skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }})
+          tag=$(skopeo list-tags docker://ghcr.io/kth8/llama-server)
           echo "TAGS=$tag" >> $GITHUB_OUTPUT
 
       - name: Format tags
@@ -159,7 +159,7 @@ jobs:
           filter: '.Repository as $repo | .Tags[] | "\($repo):\(.)"'
           raw-output: true
 
-      - name: Format tags
+      - name: Print tags
         run: |
           echo "${{ steps.tags.outputs.TAGS }}"
           echo ${{ toJSON(steps.tags.outputs.TAGS) }}
