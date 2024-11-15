@@ -14,10 +14,26 @@ env:
     QUANT: Q4_0_8_8
 
 jobs:
+  md:
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Example 1 - multiple lines
+        uses: gnpaone/dynamic-update-readme@v1.0.2
+        with:
+          marker_text: "EXAMPLE_MARKER"
+          markdown_text: "#### This is a sample text."
+
   build:
     runs-on: ubuntu-24.04
     permissions:
       packages: write
+    needs: md
     strategy:
       fail-fast: true
       matrix:
@@ -46,12 +62,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Example 1 - multiple lines
-        uses: gnpaone/dynamic-update-readme@v1.0.2
-        with:
-          marker_text: "EXAMPLE_MARKER"
-          markdown_text: "#### This is a sample text."
 
       - name: Convert model name to lowercase
         id: change_case
