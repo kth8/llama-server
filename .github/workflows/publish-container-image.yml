@@ -18,13 +18,10 @@ jobs:
     permissions:
       packages: write
     steps:
-      - uses: dataaxiom/ghcr-cleanup-action@v1.0.13
+      - uses: albertcolom/delete-package-container@main
         with:
-          keep-n-tagged: 0
-          older-than: 1 hour
-          delete-ghost-images: true
-          delete-untagged: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
+          image: ${{ github.event.repository.name }}/${{ env.IMAGE_NAME }}
 
   build:
     runs-on: ubuntu-24.04
