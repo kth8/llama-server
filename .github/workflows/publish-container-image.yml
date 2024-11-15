@@ -18,11 +18,12 @@ jobs:
     permissions:
       packages: write
     steps:
-      - uses: albertcolom/delete-package-container@main
+      - uses: paulushcgcj/delete-github-package@v1.0.0
         with:
-          token: ${{ secrets.PAT_TOKEN }}
-          image: ${{ github.actor }}/${{ env.IMAGE_NAME }}
-
+          token: ${{ github.token }}
+          type: container
+          name: ${{ env.IMAGE_NAME }}
+          user: ${{ github.repository_owner }}
   build:
     runs-on: ubuntu-24.04
     needs: cleanup
