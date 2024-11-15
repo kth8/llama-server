@@ -56,7 +56,7 @@ jobs:
           string: ${{ matrix.model }}
 
       - name: Install huggingface-cli
-        uses: BSFishy/pip-actio@v1
+        uses: BSFishy/pip-action@v1
         with:
          packages: huggingface_hub[cli]
           
