@@ -60,7 +60,7 @@ jobs:
           
       - name: Download GGUF
         run: |
-          huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}" --local-dir .
+          huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}.gguf" --local-dir .
 
       - name: Build Image with Buildah
         id: build_image
