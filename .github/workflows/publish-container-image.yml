@@ -151,7 +151,7 @@ jobs:
         with:
           input: ${{ steps.skopeo.outputs.stdout }}
           filter: '.Repository as $repo | .Tags[] | "\($repo):\(.)"'
-#          raw-output: true
+          raw-output: true
 
       - name: Print tags
         run: |
