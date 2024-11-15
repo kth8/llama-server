@@ -138,6 +138,8 @@ jobs:
   tags:
     runs-on: ubuntu-24.04
     needs: prune
+    permissions:
+      pull-requests: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
