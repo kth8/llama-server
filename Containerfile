@@ -11,6 +11,7 @@ RUN cmake --build build --config Release --target llama-server
 FROM cgr.dev/chainguard/wolfi-base
 
 ARG MODEL
+ARG QUANT
 
 RUN apk add --no-cache libcurl4 libstdc++ libgomp
 
@@ -21,13 +22,13 @@ COPY --from=build /llama.cpp/build/ggml/src/ggml-amx/libggml-amx.so /
 COPY --from=build /llama.cpp/build/ggml/src/libggml-base.so /
 COPY --from=build /llama.cpp/build/bin/llama-server /
 
-COPY ${MODEL}-Q4_0_8_8.gguf /
+COPY ${MODEL}-${QUANT}.gguf /
 
-ENV LLAMA_ARG_N_PARALLEL=3
 ENV LLAMA_ARG_CTX_SIZE=4096
+ENV LLAMA_ARG_N_PARALLEL=3
 ENV LLAMA_ARG_HOST=0.0.0.0
 ENV LLAMA_ARG_PORT=8080
-ENV LLAMA_ARG_MODEL=${MODEL}-Q4_0_8_8.gguf
+ENV LLAMA_ARG_MODEL=${MODEL}-${QUANT}.gguf
 
 EXPOSE 8080
 
