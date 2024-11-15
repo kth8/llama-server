@@ -34,3 +34,5 @@ ghcr.io/kth8/llama-server:smollm2-360m-instruct
 ghcr.io/kth8/llama-server:yi-coder-1.5b-chat
 ```
 All model GGUF files provided by [bartowski](https://huggingface.co/bartowski).
+<!-- EXAMPLE_MARKER_START -->
+<!-- EXAMPLE_MARKER_END -->
