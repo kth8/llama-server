@@ -13,7 +13,9 @@ grep -o 'avx2' /proc/cpuinfo
 Available tags:
 
 <!-- EXAMPLE_START -->
-Object
+smollm2-135m-instruct
+qwen2.5-coder-0.5b-instruct
+
 
 <!-- EXAMPLE_END -->
 
