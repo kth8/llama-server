@@ -157,7 +157,8 @@ jobs:
         uses: benlei/json2outputs@v1
         id: json
         with:
-          json: ${{ steps.skopeo.outputs.stdout }}
+          json: |
+            ${{ steps.skopeo.outputs.stdout }}
 
       - name: Print tags
         run: |
