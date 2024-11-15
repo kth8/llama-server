@@ -166,6 +166,8 @@ jobs:
           echo "###############"
           echo ${{ steps.json.outputs[''] }}
           echo ${{ steps.json.outputs['Tags'] }}
+          echo ${{ steps.json.outputs['Tags[0]'] }}
+          echo ${{ steps.json.outputs['Repository'] }}
 #          echo "${{ fromJSON(steps.jq.outputs.output) }}"
 #          echo "###############"
 #          echo "${{ steps.jq.outputs.output }}"
