@@ -122,6 +122,8 @@ jobs:
   remove_old:
     runs-on: ubuntu-24.04
     needs: build
+    permissions:
+      packages: write
     steps:
       - name: cleanup
         uses: dataaxiom/ghcr-cleanup-action@v1.0.13
