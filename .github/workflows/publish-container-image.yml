@@ -154,11 +154,13 @@ jobs:
           raw-output: true
 
       - name: Format tags
-        run: echo "${{ steps.jq.outputs.output }}"
+        run: |
+          echo "${{ steps.jq.outputs.output }}"
+          echo ${{ fromJSON(steps.skopeo.outputs.stdout) }}
 
       - name: Example
         uses: gnpaone/dynamic-update-readme@v1.0.2
         with:
           marker_text: "EXAMPLE"
           markdown_text: |
-            ${{ steps.jq.outputs.output }}
+            ${{ fromJSON(steps.skopeo.outputs.stdout) }}
