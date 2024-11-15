@@ -27,7 +27,7 @@ jobs:
         uses: gnpaone/dynamic-update-readme@v1.0.2
         with:
           marker_text: "EXAMPLE_MARKER"
-          markdown_text: "#### This is a sample text."
+          markdown_text: "#### This is an example text."
 
   build:
     runs-on: ubuntu-24.04
