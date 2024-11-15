@@ -143,40 +143,11 @@ jobs:
         id: skopeo
         with:
           run: |
-            skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}
+            skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }} | jq -r .Tags[]
 
-      - name: Format tags
-        uses: direct-actions/jq@v0.1.0
-        id: jq
+      - name: Example
+        uses: gnpaone/dynamic-update-readme@v1.0.2
         with:
-          input: ${{ steps.skopeo.outputs.stdout }}
-          filter: '.Repository as $repo | .Tags[] | "\($repo):\(.)"'
-          raw-output: true
-
-      - name: JSON to Outputs
-        uses: benlei/json2outputs@v1
-        id: json
-        with:
-          json: |
-            ${{ steps.skopeo.outputs.stdout }}
-
-      - name: Print tags
-        run: |
-          echo "${{ steps.skopeo.outputs.stdout }}"
-          echo "###############"
-          echo ${{ steps.json.outputs[''] }}
-          echo ${{ steps.json.outputs['Tags'] }}
-          echo ${{ steps.json.outputs['Tags[0]'] }}
-          echo ${{ steps.json.outputs['Repository'] }}
-          echo ${{ steps.json.outputs['Tags[0:2]'] }}
-#          echo "${{ fromJSON(steps.jq.outputs.output) }}"
-#          echo "###############"
-#          echo "${{ steps.jq.outputs.output }}"
-
-
-#      - name: Example
-#        uses: gnpaone/dynamic-update-readme@v1.0.2
-#        with:
-#          marker_text: "EXAMPLE"
-#          markdown_text: |
-#            ${{ fromJSON(steps.skopeo.outputs.stdout) }}
+          marker_text: "EXAMPLE"
+          markdown_text: |
+            ${{ fromJSON(steps.skopeo.outputs.stdout) }}
