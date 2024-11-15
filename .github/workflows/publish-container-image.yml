@@ -156,7 +156,7 @@ jobs:
       - name: Print tags
         run: |
           echo "${{ steps.skopeo.outputs.stdout }}"
-          echo ${{ toJSON(steps.skopeo.outputs.stdout).Tags }}
+          echo ${{ toJSON(steps.skopeo.outputs.stdout).Tags[] }}
 
 
 #      - name: Example
