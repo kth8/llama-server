@@ -14,27 +14,10 @@ env:
     QUANT: Q4_0_8_8
 
 jobs:
-  md:
-    runs-on: ubuntu-24.04
-#    permissions:
-#      pull-requests: write
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Example
-        uses: gnpaone/dynamic-update-readme@v1.0.2
-        with:
-          marker_text: "EXAMPLE"
-          markdown_text: |
-            # Project Title
-
   build:
     runs-on: ubuntu-24.04
     permissions:
       packages: write
-    needs: md
     strategy:
       fail-fast: true
       matrix:
@@ -161,7 +144,14 @@ jobs:
 
       - name: Format tags
         uses: direct-actions/jq@v0.1.0
+        id: jq
         with:
           input: ${{ steps.skopeo.outputs.stdout }}
           filter: '.Repository as $repo | .Tags[] | "\($repo):\(.)"'
           raw-output: true
+
+      - name: Example
+        uses: gnpaone/dynamic-update-readme@v1.0.2
+        with:
+          marker_text: "EXAMPLE"
+          markdown_text: ${{ steps.jq.outputs.output }}
