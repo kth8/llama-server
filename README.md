@@ -14,13 +14,48 @@ Available tags:
 
 <!-- TAGS_START -->
 ```
+ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
+
+ghcr.io/kth8/llama-server:llama-3.2-3b-instruct
+
+ghcr.io/kth8/llama-server:qwen2.5-0.5b-instruct
+
+ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
+
+ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
+
+ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-0.5b
+
+ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-1.5b
+
+ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-3b
+
+ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
+
+ghcr.io/kth8/llama-server:yi-coder-1.5b-chat
+
+ghcr.io/kth8/llama-server:granite-3.0-1b-a400m-instruct
+
+ghcr.io/kth8/llama-server:granite-3.0-2b-instruct
+
+ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
+
 ghcr.io/kth8/llama-server:smollm2-360m-instruct
 
 ghcr.io/kth8/llama-server:smollm2-135m-instruct
 
+ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
+
+ghcr.io/kth8/llama-server:amd-olmo-1b-sft-dpo
+
 ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
 
+ghcr.io/kth8/llama-server:qwen2.5.1-coder-1.5b-instruct
+
+ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
+
 ```
+
 <!-- TAGS_END -->
 
 All model GGUF files provided by [bartowski](https://huggingface.co/bartowski).
