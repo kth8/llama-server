@@ -13,7 +13,7 @@ grep -o 'avx2' /proc/cpuinfo
 Available tags:
 
 <!-- EXAMPLE_START -->
-
+Object
 
 <!-- EXAMPLE_END -->
 
