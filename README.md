@@ -12,7 +12,7 @@ grep -o 'avx2' /proc/cpuinfo
 ```
 Available tags:
 
-<!-- MODELS_START -->
+<!-- TAGS_START -->
 ```
 ghcr.io/kth8/llama-server:smollm2-360m-instruct
 
@@ -20,8 +20,7 @@ ghcr.io/kth8/llama-server:smollm2-135m-instruct
 
 ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
 
-
 ```
-<!-- MODELS_END -->
+<!-- TAGS_END -->
 
 All model GGUF files provided by [bartowski](https://huggingface.co/bartowski).
