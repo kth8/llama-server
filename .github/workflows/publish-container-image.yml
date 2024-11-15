@@ -138,18 +138,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
     
-      - name: Get tags1
+      - name: Get tags
         uses: mathiasvr/command-output@v2.0.0
         id: skopeo
         with:
           run: |
             skopeo list-tags docker://ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}
-
-      - name: Get tags2
-        id: tags
-        run: |
-          tag=$(skopeo list-tags docker://ghcr.io/kth8/llama-server)
-          echo "TAGS=$tag" >> $GITHUB_OUTPUT
 
       - name: Format tags
         uses: direct-actions/jq@v0.1.0
