@@ -163,9 +163,8 @@ jobs:
         run: |
           echo "${{ steps.skopeo.outputs.stdout }}"
           echo "###############"
-          echo "${{ fromJSON(steps.skopeo.outputs.stdout).Tags }}"
-          echo "###############"
-          echo ${{ steps.json.outputs['Tags[]'] }}
+          echo ${{ steps.json.outputs[''] }}
+          echo ${{ steps.json.outputs['Tags'] }}
 #          echo "${{ fromJSON(steps.jq.outputs.output) }}"
 #          echo "###############"
 #          echo "${{ steps.jq.outputs.output }}"
