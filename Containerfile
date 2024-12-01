@@ -7,6 +7,7 @@ WORKDIR /llama.cpp
 
 RUN cmake -B build
 RUN cmake --build build --config Release --target llama-server
+RUN ldd /llama.cpp/build/bin/llama-server
 
 FROM cgr.dev/chainguard/wolfi-base
 
