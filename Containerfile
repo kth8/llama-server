@@ -19,7 +19,6 @@ RUN apk add --no-cache libcurl4 libstdc++ libgomp
 COPY --from=build /llama.cpp/build/src/libllama.so /
 COPY --from=build /llama.cpp/build/ggml/src/libggml.so /
 COPY --from=build /llama.cpp/build/ggml/src/ggml-cpu/libggml-cpu.so /
-COPY --from=build /llama.cpp/build/ggml/src/ggml-amx/libggml-amx.so /
 COPY --from=build /llama.cpp/build/ggml/src/libggml-base.so /
 COPY --from=build /llama.cpp/build/bin/llama-server /
 
