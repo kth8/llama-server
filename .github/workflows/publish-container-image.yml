@@ -11,7 +11,7 @@ on:
 
 env:
     IMAGE_NAME: llama-server
-    QUANT: Q4_0_8_8
+    QUANT: Q4_K_M
 
 jobs:
   build:
