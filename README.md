@@ -24,10 +24,6 @@ ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
 
 ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
 
-ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-0.5b
-
-ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-1.5b
-
 ghcr.io/kth8/llama-server:replete-llm-v2.5-qwen-3b
 
 ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
@@ -53,6 +49,8 @@ ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
 ghcr.io/kth8/llama-server:qwen2.5.1-coder-1.5b-instruct
 
 ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
+
+ghcr.io/kth8/llama-server:hermes-3-llama-3.2-3b
 
 ```
 
