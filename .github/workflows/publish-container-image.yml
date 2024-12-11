@@ -35,6 +35,7 @@ jobs:
           - SmolLM2-135M-Instruct
           - SmolLM2-360M-Instruct
           - SmolLM2-1.7B-Instruct
+          - EXAONE-3.5-2.4B-Instruct
           - Nemotron-Mini-4B-Instruct
           - AMD-OLMo-1B-SFT-DPO
           - Yi-Coder-1.5B-Chat
