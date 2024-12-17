@@ -29,16 +29,17 @@ jobs:
           - Qwen2.5-Coder-0.5B-Instruct
           - Qwen2.5.1-Coder-1.5B-Instruct
           - Qwen2.5-Coder-3B-Instruct
+          - Qwen2-VL-2B-Instruct
           - granite-3.0-1b-a400m-instruct
           - granite-3.0-2b-instruct
           - granite-3.0-3b-a800m-instruct
           - SmolLM2-135M-Instruct
           - SmolLM2-360M-Instruct
           - SmolLM2-1.7B-Instruct
-          - EXAONE-3.5-2.4B-Instruct
+          - Falcon3-1B-Instruct
+          - Falcon3-3B-Instruct
           - Nemotron-Mini-4B-Instruct
           - AMD-OLMo-1B-SFT-DPO
-          - Yi-Coder-1.5B-Chat
 
     steps:
       - name: Checkout Repository
