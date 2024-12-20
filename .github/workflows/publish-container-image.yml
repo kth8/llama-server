@@ -30,9 +30,9 @@ jobs:
           - Qwen2.5.1-Coder-1.5B-Instruct
           - Qwen2.5-Coder-3B-Instruct
           - Qwen2-VL-2B-Instruct
-          - granite-3.0-1b-a400m-instruct
-          - granite-3.0-2b-instruct
-          - granite-3.0-3b-a800m-instruct
+          - granite-3.1-1b-a400m-instruct
+          - granite-3.1-2b-instruct
+          - granite-3.1-3b-a800m-instruct
           - SmolLM2-135M-Instruct
           - SmolLM2-360M-Instruct
           - SmolLM2-1.7B-Instruct
