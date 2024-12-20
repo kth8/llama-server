@@ -36,8 +36,6 @@ jobs:
           - SmolLM2-135M-Instruct
           - SmolLM2-360M-Instruct
           - SmolLM2-1.7B-Instruct
-          - Falcon3-1B-Instruct
-          - Falcon3-3B-Instruct
           - Nemotron-Mini-4B-Instruct
           - AMD-OLMo-1B-SFT-DPO
 
