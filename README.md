@@ -50,6 +50,8 @@ ghcr.io/kth8/llama-server:granite-3.1-2b-instruct
 
 ghcr.io/kth8/llama-server:granite-3.1-3b-a800m-instruct
 
+ghcr.io/kth8/llama-server:fastllama-3.2-1b-instruct
+
 ```
 
 <!-- TAGS_END -->
