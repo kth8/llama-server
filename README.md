@@ -26,14 +26,6 @@ ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
 
 ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
 
-ghcr.io/kth8/llama-server:yi-coder-1.5b-chat
-
-ghcr.io/kth8/llama-server:granite-3.0-1b-a400m-instruct
-
-ghcr.io/kth8/llama-server:granite-3.0-2b-instruct
-
-ghcr.io/kth8/llama-server:granite-3.0-3b-a800m-instruct
-
 ghcr.io/kth8/llama-server:smollm2-360m-instruct
 
 ghcr.io/kth8/llama-server:smollm2-135m-instruct
@@ -50,7 +42,13 @@ ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
 
 ghcr.io/kth8/llama-server:hermes-3-llama-3.2-3b
 
-ghcr.io/kth8/llama-server:exaone-3.5-2.4b-instruct
+ghcr.io/kth8/llama-server:falcon3-1b-instruct
+
+ghcr.io/kth8/llama-server:granite-3.1-1b-a400m-instruct
+
+ghcr.io/kth8/llama-server:granite-3.1-2b-instruct
+
+ghcr.io/kth8/llama-server:granite-3.1-3b-a800m-instruct
 
 ```
 
