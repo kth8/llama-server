@@ -16,10 +16,10 @@ ARG QUANT
 
 RUN apk add --no-cache libcurl4 libstdc++ libgomp
 
-COPY --from=build /llama.cpp/build/src/libllama.so /
-COPY --from=build /llama.cpp/build/ggml/src/libggml.so /
-COPY --from=build /llama.cpp/build/ggml/src/libggml-cpu.so /
-COPY --from=build /llama.cpp/build/ggml/src/libggml-base.so /
+COPY --from=build /llama.cpp/build/bin/libllama.so /
+COPY --from=build /llama.cpp/build/bin/libggml.so /
+COPY --from=build /llama.cpp/build/bin/libggml-cpu.so /
+COPY --from=build /llama.cpp/build/bin/libggml-base.so /
 COPY --from=build /llama.cpp/build/bin/llama-server /
 
 COPY ${MODEL}-${QUANT}.gguf /
