@@ -37,6 +37,7 @@ jobs:
           - SmolLM2-360M-Instruct
           - SmolLM2-1.7B-Instruct
           - AMD-OLMo-1B-SFT-DPO
+          - DeepSeek-R1-Distill-Qwen-1.5B
 
     steps:
       - name: Checkout Repository
