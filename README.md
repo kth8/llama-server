@@ -52,6 +52,8 @@ ghcr.io/kth8/llama-server:fastllama-3.2-1b-instruct
 
 ghcr.io/kth8/llama-server:deepseek-r1-distill-qwen-1.5b
 
+ghcr.io/kth8/llama-server:deepseek-r1-redistill-qwen-1.5b-v1.0
+
 ```
 
 <!-- TAGS_END -->
