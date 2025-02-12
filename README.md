@@ -24,10 +24,6 @@ ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
 
 ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
 
-ghcr.io/kth8/llama-server:nemotron-mini-4b-instruct
-
-ghcr.io/kth8/llama-server:smollm2-360m-instruct
-
 ghcr.io/kth8/llama-server:smollm2-135m-instruct
 
 ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
@@ -55,6 +51,8 @@ ghcr.io/kth8/llama-server:deepseek-r1-distill-qwen-1.5b
 ghcr.io/kth8/llama-server:deepseek-r1-redistill-qwen-1.5b-v1.0
 
 ghcr.io/kth8/llama-server:nvidia_aceinstruct-1.5b
+
+ghcr.io/kth8/llama-server:agentica-org_deepscaler-1.5b-preview
 
 ```
 
