@@ -54,6 +54,8 @@ ghcr.io/kth8/llama-server:deepseek-r1-distill-qwen-1.5b
 
 ghcr.io/kth8/llama-server:deepseek-r1-redistill-qwen-1.5b-v1.0
 
+ghcr.io/kth8/llama-server:nvidia_aceinstruct-1.5b
+
 ```
 
 <!-- TAGS_END -->
