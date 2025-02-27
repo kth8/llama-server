@@ -36,7 +36,6 @@ jobs:
           - SmolLM2-1.7B-Instruct
           - AMD-OLMo-1B-SFT-DPO
           - DeepSeek-R1-Distill-Qwen-1.5B
-          - DeepSeek-R1-ReDistill-Qwen-1.5B-v1.0
           - nvidia_AceInstruct-1.5B
           - agentica-org_DeepScaleR-1.5B-Preview
 
