@@ -28,7 +28,7 @@ jobs:
           - Qwen2.5-1.5B-Instruct
           - Qwen2.5-3B-Instruct
           - Qwen2.5-Coder-0.5B-Instruct
-          - Qwen2.5.1-Coder-1.5B-Instruct
+#          - Qwen2.5.1-Coder-1.5B-Instruct
           - Qwen2.5-Coder-3B-Instruct
           - granite-3.1-1b-a400m-instruct
           - ibm-granite_granite-3.2-2b-instruct
