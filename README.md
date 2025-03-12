@@ -30,6 +30,8 @@ ghcr.io/kth8/llama-server:amd-olmo-1b-sft-dpo
 
 ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
 
+ghcr.io/kth8/llama-server:qwen2.5.1-coder-1.5b-instruct
+
 ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
 
 ghcr.io/kth8/llama-server:hermes-3-llama-3.2-3b
@@ -51,6 +53,8 @@ ghcr.io/kth8/llama-server:nvidia_aceinstruct-1.5b
 ghcr.io/kth8/llama-server:agentica-org_deepscaler-1.5b-preview
 
 ghcr.io/kth8/llama-server:microsoft_phi-4-mini-instruct
+
+ghcr.io/kth8/llama-server:google_gemma-3-1b-it
 
 ```
 
