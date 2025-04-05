@@ -41,6 +41,8 @@ jobs:
           - DeepSeek-R1-ReDistill-Qwen-1.5B-v1.0
           - microsoft_Phi-4-mini-instruct
           - google_gemma-3-1b-it
+          - google_gemma-3-4b-it
+          - all-hands_openhands-lm-1.5b-v0.1
 
     steps:
       - name: Checkout Repository
