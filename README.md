@@ -56,6 +56,10 @@ ghcr.io/kth8/llama-server:microsoft_phi-4-mini-instruct
 
 ghcr.io/kth8/llama-server:google_gemma-3-1b-it
 
+ghcr.io/kth8/llama-server:all-hands_openhands-lm-1.5b-v0.1
+
+ghcr.io/kth8/llama-server:google_gemma-3-4b-it
+
 ```
 
 <!-- TAGS_END -->
