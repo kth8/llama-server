@@ -5,7 +5,7 @@ RUN git clone --depth 1 https://github.com/ggerganov/llama.cpp.git
 
 WORKDIR /llama.cpp
 
-RUN cmake -B build
+RUN cmake -B build -DLLAMA_CURL=OFF
 RUN cmake --build build --config Release --target llama-server
 RUN ldd /llama.cpp/build/bin/llama-server
 
