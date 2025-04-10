@@ -38,6 +38,7 @@ jobs:
           - DeepSeek-R1-Distill-Qwen-1.5B
           - nvidia_AceInstruct-1.5B
           - agentica-org_DeepScaleR-1.5B-Preview
+          - deepcogito_cogito-v1-preview-llama-3B
           - DeepSeek-R1-ReDistill-Qwen-1.5B-v1.0
           - microsoft_Phi-4-mini-instruct
           - google_gemma-3-1b-it
