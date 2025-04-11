@@ -60,6 +60,10 @@ ghcr.io/kth8/llama-server:all-hands_openhands-lm-1.5b-v0.1
 
 ghcr.io/kth8/llama-server:google_gemma-3-4b-it
 
+ghcr.io/kth8/llama-server:deepcogito_cogito-v1-preview-llama-3b
+
+ghcr.io/kth8/llama-server:zyphra_zr1-1.5b
+
 ```
 
 <!-- TAGS_END -->
