@@ -44,6 +44,7 @@ jobs:
           - google_gemma-3-1b-it
           - google_gemma-3-4b-it
           - all-hands_openhands-lm-1.5b-v0.1
+          - Zyphra_ZR1-1.5B
 
     steps:
       - name: Checkout Repository
