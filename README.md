@@ -28,8 +28,6 @@ ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
 
 ghcr.io/kth8/llama-server:amd-olmo-1b-sft-dpo
 
-ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
-
 ghcr.io/kth8/llama-server:qwen2.5.1-coder-1.5b-instruct
 
 ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
