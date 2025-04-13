@@ -66,6 +66,10 @@ jobs:
         run: |
           huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}.gguf" --local-dir .
 
+      - name: Checksum GGUF
+        run: |
+          sha256sum ${{ matrix.model }}-${{ env.QUANT }}.gguf
+
       - name: Build Image with Buildah
         id: build_image
         uses: redhat-actions/buildah-build@v2
