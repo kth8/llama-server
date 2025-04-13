@@ -1,6 +1,6 @@
 FROM cgr.dev/chainguard/wolfi-base AS build
 
-RUN apk add --no-cache build-base cmake git posix-libc-utils libcurl-openssl4
+RUN apk add --no-cache build-base cmake git posix-libc-utils libcurl4 curl-dev
 RUN git clone --depth 1 https://github.com/ggerganov/llama.cpp.git
 
 WORKDIR /llama.cpp
