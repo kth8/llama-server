@@ -1,11 +1,11 @@
 FROM cgr.dev/chainguard/wolfi-base AS build
 
-RUN apk add --no-cache build-base cmake git posix-libc-utils
+RUN apk add --no-cache build-base cmake git posix-libc-utils libcurl4-openssl-dev
 RUN git clone --depth 1 https://github.com/ggerganov/llama.cpp.git
 
 WORKDIR /llama.cpp
 
-RUN cmake -B build -DLLAMA_CURL=OFF
+RUN cmake -B build -DGGML_CUDA=OFF -DLLAMA_CURL=ON
 RUN cmake --build build --config Release --target llama-server
 RUN ldd /llama.cpp/build/bin/llama-server
 
