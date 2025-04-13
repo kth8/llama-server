@@ -64,6 +64,8 @@ ghcr.io/kth8/llama-server:deepcogito_cogito-v1-preview-llama-3b
 
 ghcr.io/kth8/llama-server:zyphra_zr1-1.5b
 
+ghcr.io/kth8/llama-server:agentica-org_deepcoder-1.5b-preview
+
 ```
 
 <!-- TAGS_END -->
