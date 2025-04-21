@@ -32,7 +32,7 @@ jobs:
           - Qwen2.5-Coder-3B-Instruct
           - granite-3.1-1b-a400m-instruct
           - granite-3.1-3b-a800m-instruct
-          - granite-3.1-2b-instruct
+          - granite-3.2-2b-instruct
           - SmolLM2-1.7B-Instruct
           - AMD-OLMo-1B-SFT-DPO
           - DeepSeek-R1-Distill-Qwen-1.5B
