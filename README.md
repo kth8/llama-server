@@ -28,6 +28,8 @@ ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
 
 ghcr.io/kth8/llama-server:amd-olmo-1b-sft-dpo
 
+ghcr.io/kth8/llama-server:qwen2.5-coder-0.5b-instruct
+
 ghcr.io/kth8/llama-server:qwen2.5.1-coder-1.5b-instruct
 
 ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
@@ -63,6 +65,8 @@ ghcr.io/kth8/llama-server:deepcogito_cogito-v1-preview-llama-3b
 ghcr.io/kth8/llama-server:zyphra_zr1-1.5b
 
 ghcr.io/kth8/llama-server:agentica-org_deepcoder-1.5b-preview
+
+ghcr.io/kth8/llama-server:ibm-granite_granite-3.3-2b-instruct
 
 ```
 
