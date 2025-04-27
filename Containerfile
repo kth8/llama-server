@@ -7,9 +7,7 @@ RUN git clone --depth 1 https://github.com/ikawrakow/ik_llama.cpp.git llama.cpp
 RUN cmake llama.cpp -B llama.cpp/build \
     -DGGML_CUDA=OFF \
     -DBUILD_SHARED_LIBS=OFF \
-    -DLLAMA_CURL=ON \
-    -DCMAKE_C_FLAGS="-march=sandybridge -mtune=generic -mno-avx -mno-avx2 -mno-bmi -mno-bmi2" \
-    -DCMAKE_CXX_FLAGS="-march=sandybridge -mtune=generic -mno-avx -mno-avx2 -mno-bmi -mno-bmi2"
+    -DLLAMA_CURL=ON
 
 RUN cmake --build llama.cpp/build --config Release --target llama-server
 RUN ldd llama.cpp/build/bin/llama-server
