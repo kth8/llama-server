@@ -2,7 +2,7 @@ FROM cgr.dev/chainguard/wolfi-base AS builder
 
 RUN apk add --no-cache build-base cmake git posix-libc-utils curl-dev
 
-RUN git clone --depth 1 https://github.com/ggerganov/llama.cpp.git
+RUN git clone --depth 1 https://github.com/ikawrakow/ik_llama.cpp.git llama.cpp
 
 RUN cmake llama.cpp -B llama.cpp/build \
     -DGGML_CUDA=OFF \
