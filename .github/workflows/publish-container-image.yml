@@ -24,9 +24,9 @@ jobs:
           - Llama-3.2-3B-Instruct
           - FastLlama-3.2-1B-Instruct
           - Hermes-3-Llama-3.2-3B
-          - Qwen2.5-0.5B-Instruct
-          - Qwen2.5-1.5B-Instruct
-          - Qwen2.5-3B-Instruct
+          - Qwen_Qwen3-0.6B
+          - Qwen_Qwen3-1.7B
+          - Qwen_Qwen3-4B
           - Qwen2.5-Coder-0.5B-Instruct
           - Qwen2.5.1-Coder-1.5B-Instruct
           - Qwen2.5-Coder-3B-Instruct
