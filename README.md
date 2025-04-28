@@ -18,10 +18,6 @@ ghcr.io/kth8/llama-server:llama-3.2-1b-instruct
 
 ghcr.io/kth8/llama-server:llama-3.2-3b-instruct
 
-ghcr.io/kth8/llama-server:qwen2.5-0.5b-instruct
-
-ghcr.io/kth8/llama-server:qwen2.5-1.5b-instruct
-
 ghcr.io/kth8/llama-server:qwen2.5-3b-instruct
 
 ghcr.io/kth8/llama-server:smollm2-1.7b-instruct
@@ -37,8 +33,6 @@ ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
 ghcr.io/kth8/llama-server:hermes-3-llama-3.2-3b
 
 ghcr.io/kth8/llama-server:granite-3.1-1b-a400m-instruct
-
-ghcr.io/kth8/llama-server:granite-3.1-2b-instruct
 
 ghcr.io/kth8/llama-server:granite-3.1-3b-a800m-instruct
 
@@ -67,6 +61,12 @@ ghcr.io/kth8/llama-server:zyphra_zr1-1.5b
 ghcr.io/kth8/llama-server:agentica-org_deepcoder-1.5b-preview
 
 ghcr.io/kth8/llama-server:ibm-granite_granite-3.3-2b-instruct
+
+ghcr.io/kth8/llama-server:qwen_qwen3-0.6b
+
+ghcr.io/kth8/llama-server:qwen_qwen3-1.7b
+
+ghcr.io/kth8/llama-server:qwen_qwen3-4b
 
 ```
 
