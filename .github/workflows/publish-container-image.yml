@@ -42,6 +42,7 @@ jobs:
           - deepcogito_cogito-v1-preview-llama-3B
           - DeepSeek-R1-ReDistill-Qwen-1.5B-v1.0
           - microsoft_Phi-4-mini-instruct
+          - microsoft_Phi-4-mini-reasoning
           - google_gemma-3-1b-it
           - google_gemma-3-4b-it
           - all-hands_openhands-lm-1.5b-v0.1
