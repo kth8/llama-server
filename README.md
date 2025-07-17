@@ -14,9 +14,9 @@ Available tags:
 
 <!-- TAGS_START -->
 ```
-ghcr.io/kth8/llama-server:google_gemma-3-4b-it
+ghcr.io/kth8/llama-server:qwen2.5-coder-3b-instruct
 
-ghcr.io/kth8/llama-server:microsoft_phi-4-mini-reasoning
+ghcr.io/kth8/llama-server:google_gemma-3-4b-it
 
 ```
 
