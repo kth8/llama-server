@@ -49,6 +49,7 @@ jobs:
           - all-hands_openhands-lm-1.5b-v0.1
           - Zyphra_ZR1-1.5B
           - baidu_ERNIE-4.5-0.3B-PT
+          - LGAI-EXAONE_EXAONE-4.0-1.2B
           - Menlo_Lucy
           - Menlo_Jan-nano
 
