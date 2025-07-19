@@ -14,7 +14,11 @@ Available tags:
 
 <!-- TAGS_START -->
 ```
-ghcr.io/kth8/llama-server:deepseek-r1-redistill-qwen-1.5b-v1.0
+ghcr.io/kth8/llama-server:llama-3.2-3b-instruct
+
+ghcr.io/kth8/llama-server:hermes-3-llama-3.2-3b
+
+ghcr.io/kth8/llama-server:menlo_jan-nano
 
 ghcr.io/kth8/llama-server:nvidia_openreasoning-nemotron-1.5b
 
