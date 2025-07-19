@@ -37,6 +37,7 @@ jobs:
           - AMD-OLMo-1B-SFT-DPO
           - DeepSeek-R1-Distill-Qwen-1.5B
           - nvidia_AceInstruct-1.5B
+          - nvidia_OpenReasoning-Nemotron-1.5B
           - agentica-org_DeepScaleR-1.5B-Preview
           - agentica-org_DeepCoder-1.5B-Preview
           - deepcogito_cogito-v1-preview-llama-3B
