@@ -14,7 +14,7 @@ Available tags:
 
 <!-- TAGS_START -->
 ```
-ghcr.io/kth8/llama-server:microsoft_phi-4-mini-reasoning
+ghcr.io/kth8/llama-server:qwen_qwen3-4b
 
 ghcr.io/kth8/llama-server:nvidia_openreasoning-nemotron-1.5b
 
