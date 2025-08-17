@@ -26,7 +26,8 @@ jobs:
           - Hermes-3-Llama-3.2-3B
           - Qwen_Qwen3-0.6B
           - Qwen_Qwen3-1.7B
-          - Qwen_Qwen3-4B
+          - Qwen_Qwen3-4B-Instruct-2507
+          - Qwen_Qwen3-4B-Thinking-2507
           - Qwen2.5-Coder-0.5B-Instruct
           - Qwen2.5.1-Coder-1.5B-Instruct
           - Qwen2.5-Coder-3B-Instruct
@@ -44,6 +45,7 @@ jobs:
           - DeepSeek-R1-ReDistill-Qwen-1.5B-v1.0
           - microsoft_Phi-4-mini-instruct
           - microsoft_Phi-4-mini-reasoning
+          - google_gemma-3-270m-it
           - google_gemma-3-1b-it
           - google_gemma-3-4b-it
           - all-hands_openhands-lm-1.5b-v0.1
@@ -52,6 +54,7 @@ jobs:
           - LGAI-EXAONE_EXAONE-4.0-1.2B
           - Menlo_Lucy
           - Menlo_Jan-nano
+          - janhq_Jan-v1-4B
 
     steps:
       - name: Checkout Repository
