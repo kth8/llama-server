@@ -64,7 +64,7 @@ jobs:
 
       - name: Download GGUF
         run: |
-          huggingface-cli download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}.gguf" --local-dir .
+          hf download bartowski/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}.gguf" --local-dir .
 
       - name: Checksum GGUF
         run: |
