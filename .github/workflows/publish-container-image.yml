@@ -12,7 +12,7 @@ on:
 env:
   IMAGE_NAME: llama-server
   PROVIDER: unsloth
-  QUANT: Q4_K_XL
+  QUANT: UD-Q4_K_XL
 
 jobs:
   build:
