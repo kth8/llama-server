@@ -57,7 +57,7 @@ jobs:
 
       - name: Download GGUF
         run: |
-          hf download ${{ PROVIDER }}/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}.gguf" --local-dir .
+          hf download ${{ env.PROVIDER }}/${{ matrix.model }}-GGUF --include "${{ matrix.model }}-${{ env.QUANT }}.gguf" --local-dir .
 
       - name: Checksum GGUF
         run: |
