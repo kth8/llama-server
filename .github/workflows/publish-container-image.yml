@@ -61,7 +61,9 @@ jobs:
 
       - name: Checksum GGUF
         run: |
-          sha256sum ${{ matrix.model }}-${{ env.QUANT }}.gguf
+          CHKSUM=$(curl -s "https://huggingface.co/${{ env.PROVIDER }}/${{ matrix.model }}-GGUF/raw/main/${{ matrix.model }}-${{ env.QUANT }}.gguf" | grep sha256 | awk -F: '{print $2}')
+          echo "$CHKSUM ${{ matrix.model }}-${{ env.QUANT }}.gguf" > ${{ matrix.model }}-${{ env.QUANT }}.gguf.sha256
+          sha256sum ${{ matrix.model }}-${{ env.QUANT }}.gguf.sha256
 
       - name: Build Image with Buildah
         id: build_image
