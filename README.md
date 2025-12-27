@@ -52,6 +52,8 @@ ghcr.io/kth8/llama-server:qwen3-4b-instruct-2507
 
 ghcr.io/kth8/llama-server:ministral-3-3b-reasoning-2512
 
+ghcr.io/kth8/llama-server:lfm2-2.6b-exp
+
 ```
 
 <!-- TAGS_END -->
