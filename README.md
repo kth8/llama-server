@@ -22,21 +22,15 @@ ghcr.io/kth8/llama-server:gemma-3-270m-it
 
 ghcr.io/kth8/llama-server:granite-4.0-350m
 
-ghcr.io/kth8/llama-server:qwen3-0.6b
-
 ghcr.io/kth8/llama-server:granite-4.0-h-350m
 
 ghcr.io/kth8/llama-server:granite-4.0-h-1b
-
-ghcr.io/kth8/llama-server:qwen3-1.7b
 
 ghcr.io/kth8/llama-server:gemma-3-1b-it
 
 ghcr.io/kth8/llama-server:gemma-3-4b-it
 
 ghcr.io/kth8/llama-server:granite-4.0-1b
-
-ghcr.io/kth8/llama-server:qwen3-4b-thinking-2507
 
 ghcr.io/kth8/llama-server:granite-4.0-h-micro
 
@@ -50,13 +44,15 @@ ghcr.io/kth8/llama-server:qwen3-4b-instruct-2507
 
 ghcr.io/kth8/llama-server:ministral-3-3b-reasoning-2512
 
-ghcr.io/kth8/llama-server:lfm2-2.6b-exp
-
 ghcr.io/kth8/llama-server:lfm2.5-vl-1.6b
 
 ghcr.io/kth8/llama-server:lfm2.5-1.2b-instruct
 
 ghcr.io/kth8/llama-server:lfm2.5-1.2b-thinking
+
+ghcr.io/kth8/llama-server:qwen3.5-0.8b
+
+ghcr.io/kth8/llama-server:qwen3.5-2b
 
 ```
 
